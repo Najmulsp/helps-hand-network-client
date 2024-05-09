@@ -1,9 +1,12 @@
-
+import Banner from "./Banner";
+import { ToastContainer } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 const Home = () => {
     return (
         <div>
-            <h1>this is home</h1>
+            <Banner></Banner>
+            <ToastContainer />
         </div>
     );
 };

@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.myChoice{
+  transition: all 1.1s;
+}
+
+.myChoice:hover{
+  transform: scale(1.2);
+}
+
+#dropdown{
+display:none;
+position: absolute;
+}
+
+#profileImg{
+position: relative;
+}
+
+#profileImg:hover #dropdown{
+  display: block;
+  position: absolute;
+}
