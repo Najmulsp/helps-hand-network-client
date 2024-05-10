@@ -8,6 +8,7 @@ import NeedVolunteers from "./NeedVolunteers";
 import PostDetails from "./PostDetails";
 import PrivetRoute from "../provider/PrivetRoute";
 import BeAVolunteer from "./BeAVolunteer";
+import AddVolunteers from "./AddVolunteers";
 
 const router = createBrowserRouter([
     {
@@ -34,6 +35,11 @@ const router = createBrowserRouter([
             path:"/beAVolunteer/:id",
             element:<PrivetRoute><BeAVolunteer></BeAVolunteer></PrivetRoute> ,
             loader: ({params}) => fetch(`http://localhost:5000/postDetails/${params.id}`)
+        },
+        {
+            path:"/addVolunteers",
+            element:<PrivetRoute><AddVolunteers></AddVolunteers></PrivetRoute> ,
+            
         },
         {
             path:"/login",

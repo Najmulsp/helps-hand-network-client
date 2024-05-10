@@ -1,7 +1,6 @@
 import { Link, useLoaderData } from "react-router-dom";
 import Banner from "./Banner";
-import { ToastContainer } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+
 
 const Home = () => {
     const volunteers = useLoaderData();
@@ -46,7 +45,7 @@ const Home = () => {
         </div>
       </div>
             </div>
-            <ToastContainer />
+            
         </div>
     );
 };

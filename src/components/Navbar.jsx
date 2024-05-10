@@ -61,70 +61,20 @@ const Navbar = () => {
           Need Volunteer
         </NavLink>
       </li>
-      {/* <li>
-        <NavLink
-          className={({ isActive }) =>
-            isActive
-              ? "border-2 px-2 lg:px-4 py-2 rounded-lg bg-orange-500  font-bold dark:text-black"
-              : ""
-          }
-          to="/myProfile"
-        >
-          My Profile
-        </NavLink>
-      </li> */}
 
-      {/* <li>
-        <NavLink className="dropdown">
-          <summary className="text-lg">open or close</summary>
+      <li>
+        <details className="dropdown">
+          <summary className="">My Profile</summary>
           <ul className="p-2 shadow menu dropdown-content z-[1000] bg-base-100 rounded-box w-52">
             <li>
-              <NavLink>Add Volunteer</NavLink>
+              <Link to="/addVolunteers">Add Volunteer Post</Link>
             </li>
             <li>
-              <NavLink>Manage My Post</NavLink>
-            </li>
-            <li>
-              <NavLink>My Requested Post</NavLink>
+              <Link>Manage My Post</Link>
             </li>
           </ul>
-        </NavLink>
-      </li> */}
-
-      <li>
-      <details className="dropdown">
-  <summary className="">My Profile</summary>
-  <ul className="p-2 shadow menu dropdown-content z-[1000] bg-base-100 rounded-box w-52">
-    <li><Link>Add Volunteer</Link></li>
-    <li><Link>Manage My Post</Link></li>
-    <li><Link>My Requested Post</Link></li>
-  </ul>
-</details>
+        </details>
       </li>
-      {/* <li>
-        <NavLink
-          className={({ isActive }) =>
-            isActive
-              ? "border-2 px-2 lg:px-4 py-2 rounded-lg bg-orange-500  font-bold dark:text-black"
-              : ""
-          }
-          to="/login"
-        >
-          Login
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          className={({ isActive }) =>
-            isActive
-              ? "border-2 px-2 lg:px-4 py-2 rounded-lg bg-orange-500  font-bold dark:text-black"
-              : ""
-          }
-          to="/register"
-        >
-          Register
-        </NavLink>
-      </li> */}
     </>
   );
   return (

@@ -1,10 +1,9 @@
-// import { useContext, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
 import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
+import { toast } from "react-toastify";
 
 
 const Register = () => {
@@ -16,8 +15,6 @@ const Register = () => {
       e.preventDefault();
       const email = e.target.email.value;
       const password = e.target.password.value;
-      
-      // clear error if no error
       setRegisterError("");
   
       if (password.length < 6) {
@@ -30,11 +27,12 @@ const Register = () => {
         toast("password Must have an Lowercase letter ");
         return;
       }
-  
-      createUser
+      
+      // createUser
       createUser(email, password)
         .then((result) => {
           console.log(result.user);
+          
           toast("User has created successfully");
         })
         .catch((error) => {
