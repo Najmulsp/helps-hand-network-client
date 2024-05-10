@@ -60,7 +60,7 @@ const Banner = () => {
       > 
     <div className='relative  bg-gradient-to-r from-slate-950 to-gray-950 rounded-xl   w-full h-[450px] lg:h-[550px] '> 
         <div className=" ">
-        <img src="https://i.ibb.co/PD2n1z7/crafts-banner-image-11.jpg" alt="" className="absolute opacity-50  w-full h-[450px] lg:h-[550px] rounded-xl  mx-auto"/>
+        <img src="https://i.ibb.co/L6S0cNP/foode.jpg" alt="" className="absolute opacity-50  w-full h-[450px] lg:h-[550px] rounded-xl  mx-auto"/>
         </div>
         
           <h1
@@ -92,7 +92,7 @@ const Banner = () => {
       > 
     <div className='relative  bg-gradient-to-r from-slate-950 to-gray-950 rounded-xl   w-full h-[450px] lg:h-[550px] '> 
         <div className=" ">
-        <img src="https://i.ibb.co/r7FnZYV/crafts-banner-image-2.jpg" alt="" className="absolute opacity-50  w-full h-[450px] lg:h-[550px] rounded-xl  mx-auto"/>
+        <img src="https://i.ibb.co/0VKG4fT/we-volunteer-mo32d.jpgg" alt="" className="absolute opacity-50  w-full h-[450px] lg:h-[550px] rounded-xl  mx-auto"/>
         </div>
         
           <h1
@@ -124,7 +124,7 @@ const Banner = () => {
       > 
     <div className='relative  bg-gradient-to-r from-slate-950 to-gray-950 rounded-xl   w-full h-[450px] lg:h-[550px] '> 
         <div className=" ">
-        <img src="https://i.ibb.co/KzT13pn/crafts-banner-image-3.jpg" alt="" className="absolute opacity-50  w-full h-[450px] lg:h-[550px] rounded-xl  mx-auto"/>
+        <img src="https://i.ibb.co/x2wXYyY/chittagong-hill-cleaners-at-a.jpg" alt="" className="absolute opacity-50  w-full h-[450px] lg:h-[550px] rounded-xl  mx-auto"/>
         </div>
         
           <h1

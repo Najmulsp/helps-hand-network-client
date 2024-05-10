@@ -1,9 +1,8 @@
 import { Link, NavLink } from "react-router-dom";
-import {  useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 // import axios from "axios";
 import Swal from "sweetalert2";
-
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
@@ -57,50 +56,52 @@ const Navbar = () => {
               ? "border-2 px-2 lg:px-4 py-2 rounded-lg bg-orange-500 font-bold dark:text-black"
               : ""
           }
-          to="/about"
+          to="/needVolunteers"
         >
-          About
+          Need Volunteer
         </NavLink>
       </li>
-      <li>
+      {/* <li>
         <NavLink
           className={({ isActive }) =>
             isActive
               ? "border-2 px-2 lg:px-4 py-2 rounded-lg bg-orange-500  font-bold dark:text-black"
               : ""
           }
-          to="/services"
+          to="/myProfile"
         >
-          Services
+          My Profile
         </NavLink>
-      </li>
-      {user && (
-        <li>
-          <NavLink
-            className={({ isActive }) =>
-              isActive
-                ? "border-2 px-2 lg:px-4 py-2 rounded-lg bg-orange-500  font-bold dark:text-black"
-                : ""
-            }
-            to="/orders"
-          >
-            Orders
-          </NavLink>
-        </li>
-      )}
-      <li>
-        <NavLink
-          className={({ isActive }) =>
-            isActive
-              ? "border-2 px-2 lg:px-4 py-2 rounded-lg bg-orange-500  font-bold dark:text-black"
-              : ""
-          }
-          to="/contact"
-        >
-          Contact
+      </li> */}
+
+      {/* <li>
+        <NavLink className="dropdown">
+          <summary className="text-lg">open or close</summary>
+          <ul className="p-2 shadow menu dropdown-content z-[1000] bg-base-100 rounded-box w-52">
+            <li>
+              <NavLink>Add Volunteer</NavLink>
+            </li>
+            <li>
+              <NavLink>Manage My Post</NavLink>
+            </li>
+            <li>
+              <NavLink>My Requested Post</NavLink>
+            </li>
+          </ul>
         </NavLink>
-      </li>
+      </li> */}
+
       <li>
+      <details className="dropdown">
+  <summary className="">My Profile</summary>
+  <ul className="p-2 shadow menu dropdown-content z-[1000] bg-base-100 rounded-box w-52">
+    <li><Link>Add Volunteer</Link></li>
+    <li><Link>Manage My Post</Link></li>
+    <li><Link>My Requested Post</Link></li>
+  </ul>
+</details>
+      </li>
+      {/* <li>
         <NavLink
           className={({ isActive }) =>
             isActive
@@ -123,7 +124,7 @@ const Navbar = () => {
         >
           Register
         </NavLink>
-      </li>
+      </li> */}
     </>
   );
   return (
@@ -225,7 +226,7 @@ const Navbar = () => {
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
           </svg>
         </label>
-        <NavLink
+        {/* <NavLink
           className={({ isActive }) =>
             isActive
               ? "border-2 btn bg-orange-500  font-bold dark:text-black"
@@ -234,7 +235,7 @@ const Navbar = () => {
           to="/"
         >
           Appointment
-        </NavLink>
+        </NavLink> */}
       </div>
     </div>
   );

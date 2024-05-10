@@ -67,7 +67,7 @@ const Login = () => {
                 <span className="label-text">Password</span>
               </label>
               <input
-                // type={showPassword ? "text" : "password"}
+                type={showPassword ? "text" : "password"}
                 name="password"
                 placeholder="Password"
                 className="input input-bordered"

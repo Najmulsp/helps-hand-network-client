@@ -1,23 +1,17 @@
 import { Link, useLoaderData } from "react-router-dom";
-import Banner from "./Banner";
-import { ToastContainer } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
 
-const Home = () => {
+
+const NeedVolunteers = () => {
     const volunteers = useLoaderData();
-    const needVolunteers = volunteers.slice(0, 6);
     return (
         <div>
-            <Banner></Banner>
             <div>
-            <div className="mt-10 container mx-auto">
-        <h1 className="text-4xl text-center p-4">Craft Items</h1>
-        <p className="text-center w-80 lg:w-full mx-auto">
-          Crafts according to your needs.We promise to deliver quality &
-          creativity
-        </p>
-        <div className="container md:w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-10 mx-auto gap-6 justify-around">
-          {needVolunteers.map((volunteer) => (
+                <h1>Search Functionality: On the top of this page, you need to implement
+search functionality through a search input based on the Post Title. You
+can implement it through the backend.</h1>
+            </div>
+            <div className="container md:w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-10 mx-auto gap-6 justify-around">
+          {volunteers.map((volunteer) => (
             <div key={volunteer._id}>
               <div className="card rounded-md w-96 md:w-80 lg:w-96 bg-base-100 shadow-xl mx-auto ">
                 <figure>
@@ -36,19 +30,14 @@ const Home = () => {
                     <span className="font-bold">Deadline: </span>
                     {volunteer.deadline}
                   </p>
+                  <Link to={`/postDetails/${volunteer._id}`}><button className="btn btn-secondary">Post Details</button></Link>
                 </div>
               </div>
             </div>
           ))}
         </div>
-        <div className="text-center">
-        <Link to="/needVolunteers"><button className="btn btn-primary mx-auto">See All</button></Link>
-        </div>
-      </div>
-            </div>
-            <ToastContainer />
         </div>
     );
 };
 
-export default Home;
+export default NeedVolunteers;
