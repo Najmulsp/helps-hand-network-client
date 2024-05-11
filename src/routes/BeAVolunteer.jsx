@@ -12,8 +12,6 @@ const BeAVolunteer = () => {
 
     const handleAVolunteer = e =>{
         e.preventDefault();
-        
-        
 
         const postTitle = e.target.title.value;
         const description = e.target.description.value;
@@ -57,7 +55,7 @@ const BeAVolunteer = () => {
     return (
         <div className="border rounded-xl w-4/5 lg:w-3/5 mx-auto p-6 mt-8">
         <Helmet>
-                <title>Helps Hand Network/ Be a Volunteer</title>
+                <title>Home/ Be a Volunteer</title>
               </Helmet>
               <div className="text-center">
                 <div className="space-y-2 col-span-full  mb-4">

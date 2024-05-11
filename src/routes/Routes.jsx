@@ -9,6 +9,9 @@ import PostDetails from "./PostDetails";
 import PrivetRoute from "../provider/PrivetRoute";
 import BeAVolunteer from "./BeAVolunteer";
 import AddVolunteers from "./AddVolunteers";
+import ManagePost from "./ManagePost";
+import UpdateMyPost from "./UpdateMyPost";
+import MyReqestedPost from "./MyReqestedPost";
 
 const router = createBrowserRouter([
     {
@@ -38,7 +41,21 @@ const router = createBrowserRouter([
         },
         {
             path:"/addVolunteers",
-            element:<PrivetRoute><AddVolunteers></AddVolunteers></PrivetRoute> ,
+            element:<PrivetRoute><AddVolunteers></AddVolunteers></PrivetRoute>,
+            
+        },
+        {
+            path:"/managePost",
+            element:<PrivetRoute><ManagePost></ManagePost></PrivetRoute>, 
+        },
+        {
+            path:"/updateMyPost/:id",
+            element:<PrivetRoute><UpdateMyPost></UpdateMyPost></PrivetRoute>,
+            loader: ({params}) => fetch(`http://localhost:5000/singlePost/${params.id}`) 
+        },
+        {
+            path:"/myRequestedPost",
+            element:<PrivetRoute><MyReqestedPost></MyReqestedPost></PrivetRoute>,
             
         },
         {

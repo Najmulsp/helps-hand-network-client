@@ -43,7 +43,7 @@ const Register = () => {
     return (
         <div className="hero min-h-screen bg-base-200">
       <Helmet>
-        <title>Helps Hand Network/ Register</title>
+        <title>Home/ Register</title>
       </Helmet>
       <div className="hero-content w-4/5">
         <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">

@@ -1,15 +1,15 @@
-import { useLoaderData } from "react-router-dom";
-import { useContext } from "react";
-import Swal from "sweetalert2";
+import { useContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { useLoaderData, useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 import { AuthContext } from "../provider/AuthProvider";
 
-const AddVolunteers = () => {
-  const volunteerPost = useLoaderData();
+const UpdateMyPost = () => {
   const { user } = useContext(AuthContext);
-  console.log(user.email);
+  const singlePost = useLoaderData();
+  console.log(singlePost);
 
-  const handleAddVolunteers = (e) => {
+  const handleUpdate = (e) => {
     e.preventDefault();
     const postTitle = e.target.title.value;
     const description = e.target.description.value;
@@ -21,7 +21,7 @@ const AddVolunteers = () => {
     const organizerEmail = user?.email;
     const photo = e.target.photo.value;
 
-    const adddata = {
+    const updateVolunteer = {
       postTitle,
       description,
       category,
@@ -34,20 +34,20 @@ const AddVolunteers = () => {
     };
 
     // send data to the server
-    fetch("http://localhost:5000/addVolunteers", {
-      method: "POST",
+    fetch(`http://localhost:5000/updateVolunteerInfo/${singlePost?._id}`, {
+      method: "PUT",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify(adddata),
+      body: JSON.stringify(updateVolunteer),
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data?.insertedId) {
+        if (data?.modifiedCount) {
           Swal.fire({
-            title: "Success!",
-            text: "Your post added successfully",
+            title: "success!",
+            text: "Your Volunteer Info updated successfully",
             icon: "success",
-            confirmButtonText: "OK",
+            confirmButtonText: "Cool",
           });
         }
       });
@@ -63,7 +63,7 @@ const AddVolunteers = () => {
         </div>
         <div className="grid grid-cols-2 gap-6 p-6 rounded-md shadow-sm ">
           <form
-            onSubmit={handleAddVolunteers}
+            onSubmit={handleUpdate}
             className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3"
           >
             {/* Post Title */}
@@ -77,7 +77,7 @@ const AddVolunteers = () => {
               <input
                 name="title"
                 type="text"
-                placeholder="Name of service"
+                defaultValue={singlePost.postTitle}
                 className="w-full border-2  rounded-md focus:ring focus:ring-opacity-75  focus:dark:ring-violet-600 dark:border-gray-300 p-3"
               />
             </div>
@@ -92,7 +92,7 @@ const AddVolunteers = () => {
               <input
                 name="description"
                 type="text"
-                placeholder="Description"
+                defaultValue={singlePost.description}
                 className="w-full border-2  rounded-md focus:ring focus:ring-opacity-75  focus:dark:ring-violet-600 dark:border-gray-300 p-3"
               ></input>
             </div>
@@ -107,7 +107,7 @@ const AddVolunteers = () => {
               <input
                 name="category"
                 type="text"
-                placeholder="Category"
+                defaultValue={singlePost.category}
                 className="w-full border-2  rounded-md focus:ring focus:ring-opacity-75  focus:dark:ring-violet-600 dark:border-gray-300 p-3"
               />
             </div>
@@ -122,7 +122,7 @@ const AddVolunteers = () => {
               <input
                 name="location"
                 type="text"
-                placeholder="Location"
+                defaultValue={singlePost.location}
                 className="w-full border-2  rounded-md focus:ring focus:ring-opacity-75  focus:dark:ring-violet-600 dark:border-gray-300 p-3"
               />
             </div>
@@ -137,7 +137,7 @@ const AddVolunteers = () => {
               <input
                 name="quantity"
                 type="text"
-                placeholder="Quantity"
+                defaultValue={singlePost.quantity}
                 className="w-full border-2  rounded-md focus:ring focus:ring-opacity-75  focus:dark:ring-violet-600 dark:border-gray-300 p-3"
               />
             </div>
@@ -152,7 +152,7 @@ const AddVolunteers = () => {
               <input
                 name="deadline"
                 type="text"
-                placeholder="Deadline"
+                defaultValue={singlePost.deadline}
                 className="w-full border-2 rounded-md focus:ring focus:ring-opacity-75  focus:dark:ring-violet-600 dark:border-gray-300 p-3"
               />
             </div>
@@ -167,7 +167,7 @@ const AddVolunteers = () => {
               <input
                 name="organizerName"
                 type="text"
-                placeholder="Your Name"
+                defaultValue={user?.displayName || "Your Name"}
                 className="w-full border-2 rounded-md focus:ring focus:ring-opacity-75  focus:dark:ring-violet-600 dark:border-gray-300 p-3"
               ></input>
             </div>
@@ -194,7 +194,7 @@ const AddVolunteers = () => {
               </label>
               <input
                 name="photo"
-                placeholder="Photo URL"
+                defaultValue={singlePost?.photo}
                 className="w-full border-2  rounded-md focus:ring focus:ring-opacity-75  focus:dark:ring-violet-600 dark:border-gray-300 p-3"
               ></input>
             </div>
@@ -205,7 +205,7 @@ const AddVolunteers = () => {
                 value="Add Coffee"
                 className="bg-violet-400 rounded-md btn btn-block p-3"
               >
-                Request
+                Update
               </button>
             </div>
           </form>
@@ -215,4 +215,4 @@ const AddVolunteers = () => {
   );
 };
 
-export default AddVolunteers;
+export default UpdateMyPost;

@@ -37,12 +37,14 @@ const Login = () => {
 
   const handleGoogleLogin = () =>{
     googleLogin()
+     // navigate after log in
+     navigate(location?.state ? location.state : "/");
   }
 
     return (
         <div className="hero  min-h-screen bg-base-200">
       <Helmet>
-        <title>Helps Hand Network/ Login</title>
+        <title>Home/ Login</title>
       </Helmet>
       <div className="hero-content w-4/5">
         <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">

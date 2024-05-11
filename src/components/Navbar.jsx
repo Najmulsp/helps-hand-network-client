@@ -61,6 +61,18 @@ const Navbar = () => {
           Need Volunteer
         </NavLink>
       </li>
+      <li>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "border-2 px-2 lg:px-4 py-2 rounded-lg bg-orange-500 font-bold dark:text-black"
+              : ""
+          }
+          to="/myRequestedPost"
+        >
+          My Requested Post
+        </NavLink>
+      </li>
 
       <li>
         <details className="dropdown">
@@ -70,7 +82,7 @@ const Navbar = () => {
               <Link to="/addVolunteers">Add Volunteer Post</Link>
             </li>
             <li>
-              <Link>Manage My Post</Link>
+              <Link to="/managePost">Manage My Post</Link>
             </li>
           </ul>
         </details>
