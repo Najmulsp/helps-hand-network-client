@@ -42,7 +42,6 @@ const router = createBrowserRouter([
         {
             path:"/addVolunteers",
             element:<PrivetRoute><AddVolunteers></AddVolunteers></PrivetRoute>,
-            
         },
         {
             path:"/managePost",

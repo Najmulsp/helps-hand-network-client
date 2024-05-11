@@ -1,6 +1,6 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../provider/AuthProvider";
 
@@ -38,7 +38,7 @@ const UpdateMyPost = () => {
       method: "PUT",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(updateVolunteer),
-    })
+    }, {Credentials: "include"})
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

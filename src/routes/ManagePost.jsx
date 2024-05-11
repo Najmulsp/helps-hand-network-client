@@ -12,11 +12,10 @@ const ManagePost = () => {
     
   
     useEffect(() => {
-      fetch(`http://localhost:5000/manageMyPost/${user?.email}`)
+      fetch(`http://localhost:5000/manageMyPost/${user?.email}`, {credentials: "include"})
         .then((res) => res.json())
         .then((data) => {
             setMyPosts(data);
-            console.log(data)
         });
     }, [user]);
 

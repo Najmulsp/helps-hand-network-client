@@ -1,17 +1,17 @@
 import { Link, NavLink } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
-// import axios from "axios";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
 
   const handleLogout = async () => {
-    // const { data } = await axios.post(`http://localhost:5000/logout`, user, {
-    //   withCredentials: true,
-    //  });
-    // console.log(data);
+    const { data } = await axios.post(`http://localhost:5000/logout`, user, {
+      withCredentials: true,
+     });
+    console.log(data);
     logout();
     Swal.fire({
       position: "top-end",

@@ -1,11 +1,10 @@
-import { useLoaderData } from "react-router-dom";
 import { useContext } from "react";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../provider/AuthProvider";
 
 const AddVolunteers = () => {
-  const volunteerPost = useLoaderData();
+
   const { user } = useContext(AuthContext);
   console.log(user.email);
 
@@ -21,7 +20,7 @@ const AddVolunteers = () => {
     const organizerEmail = user?.email;
     const photo = e.target.photo.value;
 
-    const adddata = {
+    const addData = {
       postTitle,
       description,
       category,
@@ -37,7 +36,7 @@ const AddVolunteers = () => {
     fetch("http://localhost:5000/addVolunteers", {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify(adddata),
+      body: JSON.stringify(addData),
     })
       .then((res) => res.json())
       .then((data) => {

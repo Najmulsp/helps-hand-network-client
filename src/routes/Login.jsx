@@ -6,15 +6,16 @@ import { Link } from "react-router-dom";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { toast } from "react-toastify";
+import axios from "axios";
 
 
 const Login = () => {
-    const { login, googleLogin} = useContext(AuthContext);
+    const {user, login, googleLogin} = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async(e) => {
     e.preventDefault();
 
     const email = e.target.email.value;
@@ -22,22 +23,35 @@ const Login = () => {
     
 
     //login
-    login(email, password)
-      .then((result) => {
-        console.log(result.user);
+    
+
+    try{
+      
+    
+    const result =await login(email, password)
+    console.log(result.user)
+    const {data} = await axios.post(`http://localhost:5000/jwt`, {email: result?.user?.email}, {withCredentials: true})
+    console.log(data)
+      // .then((result) => {
+      //   console.log(result);
         toast("You have successfully logged in");
 
         // navigate after log in
         navigate(location?.state ? location.state : "/");
-      })
-      .catch(() => {
+      // })
+      }catch (err)  {
+        console.log(err)
         toast("User email or password not matched");
-      });
+      }
+    
   };
 
-  const handleGoogleLogin = () =>{
-    googleLogin()
-     // navigate after log in
+  const handleGoogleLogin = async() =>{
+    const result = await googleLogin();
+    console.log(result.user)
+    const {data} = await axios.post(`http://localhost:5000/jwt`, {email: result?.user?.email}, {withCredentials: true})
+    console.log(data)
+    // navigate after log in
      navigate(location?.state ? location.state : "/");
   }
 

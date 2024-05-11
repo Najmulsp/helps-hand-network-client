@@ -1,47 +1,53 @@
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
 import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import { toast } from "react-toastify";
-
+import axios from "axios";
 
 const Register = () => {
-    const [registerError, setRegisterError] = useState("");
-    const [showPassword, setShowPassword] = useState(false);
-    const { createUser } = useContext(AuthContext);
-  
-    const handleRegister = (e) => {
-      e.preventDefault();
-      const email = e.target.email.value;
-      const password = e.target.password.value;
-      setRegisterError("");
-  
-      if (password.length < 6) {
-        toast("password must be at least 6 characters long");
-        return;
-      } else if (!/[A-Z]/.test(password)) {
-        toast("password Must have an Uppercase letter ");
-        return;
-      } else if (!/[a-z]/.test(password)) {
-        toast("password Must have an Lowercase letter ");
-        return;
-      }
-      
+  const [registerError, setRegisterError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const { createUser } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    setRegisterError("");
+
+    if (password.length < 6) {
+      toast("password must be at least 6 characters long");
+      return;
+    } else if (!/[A-Z]/.test(password)) {
+      toast("password Must have an Uppercase letter ");
+      return;
+    } else if (!/[a-z]/.test(password)) {
+      toast("password Must have an Lowercase letter ");
+      return;
+    }
+
+    try{
       // createUser
-      createUser(email, password)
-        .then((result) => {
-          console.log(result.user);
-          
-          toast("User has created successfully");
-        })
-        .catch((error) => {
-          console.error(error);
-          setRegisterError(error.message);
-        });
-     };
-    return (
-        <div className="hero min-h-screen bg-base-200">
+    const result = await createUser(email, password);  
+    const { data } = await axios.post(
+      `http://localhost:5000/jwt`,
+      { email: result?.user?.email },
+      { withCredentials: true }
+    );
+    console.log(data)
+        toast("User has created successfully");
+        navigate(location?.state ? location.state : "/");
+       } catch (error)  {
+        console.error(error);
+        setRegisterError(error.message);
+      }
+  };
+  return (
+    <div className="hero min-h-screen bg-base-200">
       <Helmet>
         <title>Home/ Register</title>
       </Helmet>
@@ -124,7 +130,7 @@ const Register = () => {
         </div>
       </div>
     </div>
-    );
+  );
 };
 
 export default Register;

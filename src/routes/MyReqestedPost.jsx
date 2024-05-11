@@ -7,14 +7,14 @@ const MyReqestedPost = () => {
   const { user } = useContext(AuthContext);
 
   const [myRequestPosts, setMyRequestPosts] = useState([]);
-  console.log(myRequestPosts)
+  
 
   useEffect(() => {
-    fetch(`http://localhost:5000/MyRequestPost/${user?.email}`)
+    fetch(`http://localhost:5000/MyRequestPost/${user?.email}`, {credentials: "include"})
       .then((res) => res.json())
       .then((data) => {
         setMyRequestPosts(data);
-        console.log(data);
+       
       });
   }, [user]);
 
@@ -103,9 +103,7 @@ const MyReqestedPost = () => {
 					</td>
 				</tr>
 			</tbody>
-                )
-            }
-         
+                )}
         </table>
       </div>
     </div>

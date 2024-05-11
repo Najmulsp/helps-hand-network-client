@@ -38,7 +38,7 @@ const BeAVolunteer = () => {
             method: 'POST',
             headers:{'content-type' : 'application/json'},
             body:JSON.stringify(newRequest)
-        })
+        }, {Credentials: "include"})
         .then(res => res.json())
         .then(data => {
             console.log(data)
