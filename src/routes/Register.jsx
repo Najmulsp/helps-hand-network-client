@@ -53,7 +53,7 @@ const Register = () => {
       </Helmet>
       <div className="hero-content w-4/5">
         <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <h1 className="text-5xl text-center font-bold px-4 mt-6">Register</h1>
+          <h1 className="text-5xl text-center text-orange-600 font-bold px-4 mt-6">Register</h1>
           <form onSubmit={handleRegister} className="card-body">
             <div className="form-control">
               <label className="label">
@@ -117,13 +117,13 @@ const Register = () => {
             {registerError && <p className="text-red-500">{registerError}</p>}
 
             <div className="form-control mt-6">
-              <button className="btn btn-primary">Register</button>
+              <button className="btn bg-orange-600">Register</button>
             </div>
           </form>
 
           <p className="p-8">
             Already have an account?{" "}
-            <Link to="/login" className="text-blue-300">
+            <Link to="/login" className="text-orange-600">
               Login
             </Link>
           </p>

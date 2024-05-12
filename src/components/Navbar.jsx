@@ -174,7 +174,7 @@ const Navbar = () => {
             </div>
           </div>
         ) : (
-          <Link className="btn px-6 btn-ghost" to="/login">
+          <Link className="btn px-6 bg-purple-400" to="/login">
             Login
           </Link>
         )}

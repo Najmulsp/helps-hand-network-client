@@ -63,14 +63,15 @@ const Login = () => {
       </Helmet>
       <div className="hero-content w-4/5">
         <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <h1 className="text-5xl text-center font-bold px-4 mt-6">
+          <h1 className="text-5xl text-center text-orange-600 font-bold px-4 mt-6">
             Login now!
           </h1>
           <div className="mt-6">
             <button
+              onClick={handleGoogleLogin}
               aria-label="Login with Google"
               type="button"
-              className="flex items-center justify-center w-4/5 mx-auto p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-600 focus:dark:ring-violet-600"
+              className="flex btn items-center justify-center w-4/5 mx-auto p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-600 focus:dark:ring-violet-600"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -119,25 +120,16 @@ const Login = () => {
             </div>
 
             <div className="form-control mt-6">
-              <button className="btn btn-primary">Login</button>
+              <button className="btn bg-orange-600">Login</button>
             </div>
           </form>
 
           <p className="p-8">
             Do not have an account?{" "}
-            <Link to="/register" className="text-sky-300">
+            <Link to="/register" className="text-orange-600">
               Register
             </Link>
           </p>
-          <div className="flex justify-center items-center gap-6 pb-4">
-            <p>Log in with</p>
-            <button
-              onClick={handleGoogleLogin}
-              className="btn btn-outline btn-primary text-secondary"
-            >
-              Google
-            </button>
-          </div>
         </div>
       </div>
     </div>

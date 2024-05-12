@@ -6,7 +6,7 @@ const PostDetails = () => {
 
   // const {thumbnail, postTitle, category, deadline} = volunteerPost
   return (
-    <div className=" w-2/5 mx-auto mt-10">
+    <div className=" lg:w-2/5 mx-auto mt-10">
       <Helmet>
         <title>Home/ My Post Details</title>
       </Helmet>
@@ -40,7 +40,7 @@ const PostDetails = () => {
             {volunteerPost?.description}
           </p>
           <Link to={`/beAVolunteer/${volunteerPost?.[0]._id}`}>
-            <button className="btn">Be a Volunteer</button>
+            <button className="btn bg-purple-600">Be a Volunteer</button>
           </Link>
         </div>
       </div>

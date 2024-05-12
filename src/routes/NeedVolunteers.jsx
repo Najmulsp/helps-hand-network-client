@@ -1,21 +1,35 @@
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link, useLoaderData } from "react-router-dom";
+import { FaStackExchange } from "react-icons/fa";
 
 const NeedVolunteers = () => {
   const volunteers = useLoaderData();
+  const [layoutMode, setLayoutMode] = useState('card');
+  const [search, setSearch] = useState('');
+
+  // Function to toggle layout mode
+  const toggleLayout = () => {
+    setLayoutMode(prevMode => prevMode === 'card' ? 'table' : 'card');
+  };
+
   return (
     <div>
       <Helmet>
         <title>Home/ Need Volunteers</title>
       </Helmet>
-      <div>
-        <h1>
-          Search Functionality: On the top of this page, you need to implement
-          search functionality through a search input based on the Post Title.
-          You can implement it through the backend.
-        </h1>
+      <div className="relative text-center mt-6">
+        <input type="text" name="search" className="border p-4 w-96 " />
+        <button className="absolute btn right-[452px] top-1">Search</button>
       </div>
-      <div className="container md:w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-10 mx-auto gap-6 justify-around">
+       <div>
+      
+      <div className="text-right relative">
+      <button onClick={toggleLayout} className="btn ">Change Layout</button>
+      <FaStackExchange className="absolute right-28 top-5" />
+      </div>
+      {layoutMode === 'card' ? (
+        <div className="container md:w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-10 mx-auto gap-6 justify-around">
         {volunteers.map((volunteer) => (
           <div key={volunteer._id}>
             <div className="card rounded-md w-96 md:w-80 lg:w-96 bg-base-100 shadow-xl mx-auto ">
@@ -29,7 +43,7 @@ const NeedVolunteers = () => {
               <div className="card-body">
                 <h2 className="card-title">
                   {volunteer.postTitle}
-                  <div className="badge badge-secondary">NEW</div>
+                  
                 </h2>
                 <p className="font-normal">
                   <span className="font-bold">Category: </span>
@@ -40,13 +54,72 @@ const NeedVolunteers = () => {
                   {volunteer.deadline}
                 </p>
                 <Link to={`/postDetails/${volunteer._id}`}>
-                  <button className="btn btn-secondary">Post Details</button>
+                  <button className="btn bg-purple-600">Post Details</button>
                 </Link>
               </div>
             </div>
           </div>
         ))}
       </div>
+      ) : (
+        <div className="container p-2 mx-auto sm:p-4 dark:text-gray-800">
+        <h2 className="mb-4 text-2xl font-semibold leading-tight">Invoices</h2>
+        <div className="overflow-x-auto">
+          <table className="min-w-full text-xs">
+            <colgroup>
+              <col />
+              <col />
+              <col />
+              <col />
+              <col />
+              <col className="w-24" />
+            </colgroup>
+            <thead className="dark:bg-gray-300">
+              <tr className="text-left">
+                <th className="p-3">Photo</th>
+                <th className="p-3">Title</th>
+                <th className="p-3">Category</th>
+                <th className="p-3">Deadline</th>
+                <th className="p-3 text-right">Amount</th>
+                <th className="p-3">Status</th>
+              </tr>
+            </thead>
+            {
+                      volunteers.map(volunteer =>
+                          <tbody key={volunteer._id}>
+              <tr className="border-b border-opacity-20 dark:border-gray-300 dark:bg-gray-50">
+                <td className="p-3">
+                  <img src={volunteer.photo} alt="" className="w-20 h-20 rounded-lg"/>
+                </td>
+                <td className="p-3">
+                  <p>{volunteer.postTitle}</p>
+                </td>
+                <td className="p-3">
+                  <p>{volunteer.category}</p>
+                  
+                </td>
+                <td className="p-3">
+                  <p>{volunteer.deadline}</p>
+                  
+                </td>
+                <td className="p-3 text-right">
+                  <p>$15,792</p>
+                </td>
+                {/* <td className="p-3 text-right">
+                              <div className="flex gap-2">
+                              <Link to={`/updateMyPost/${myPost._id}`}><button className="btn bg-purple-600">Update</button></Link>
+                              <button onClick={() => handleDeletePost(myPost._id)} className="btn bg-orange-600">Delete</button>
+                              </div>
+                </td> */}
+              </tr>
+            </tbody>
+                      )}
+                  
+          </table>
+        </div>
+      </div>
+      )}
+    </div>
     </div>
   );
 };

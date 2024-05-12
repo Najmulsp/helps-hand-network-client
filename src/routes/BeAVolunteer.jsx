@@ -53,14 +53,18 @@ const BeAVolunteer = () => {
         })
     }
     return (
-        <div className="border rounded-xl w-4/5 lg:w-3/5 mx-auto p-6 mt-8">
+        <div>
+          <div>
+            <img src="https://i.ibb.co/4dNb1kd/raised-hands-10183.jpg" alt="" className="w-full h-64 rounded-xl"/>
+          </div>
+          <div className="border rounded-xl w-4/5 lg:w-3/5 mx-auto p-6 mt-8">
         <Helmet>
                 <title>Home/ Be a Volunteer</title>
               </Helmet>
-              <h1 className="text-4xl text-center p-4">BECOME A VOLUNTEER</h1>
+            
               <div className="text-center">
                 <div className="space-y-2 col-span-full  mb-4">
-                  <p className="font-medium">Be a Volunteer</p>
+                  <p className="font-medium text-4xl text-center p-4">Be a Volunteer</p>
                   
                 </div>
                 <div className="grid grid-cols-2 gap-6 p-6 rounded-md shadow-sm ">
@@ -288,6 +292,7 @@ const BeAVolunteer = () => {
                 </div>
               </div>
             </div>
+        </div>
     );
 };
 

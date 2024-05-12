@@ -58,7 +58,7 @@ const AddVolunteers = () => {
       </Helmet>
       <div className="text-center">
         <div className="space-y-2 col-span-full  mb-4">
-          <p className="font-medium">Be a Volunteer</p>
+          <p className="font-medium">Add Your Post <br />to inform us and get help from Help Hand Network</p>
         </div>
         <div className="grid grid-cols-2 gap-6 p-6 rounded-md shadow-sm ">
           <form

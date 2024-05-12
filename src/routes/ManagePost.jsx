@@ -101,8 +101,8 @@ const ManagePost = () => {
 					</td>
 					<td className="p-3 text-right">
                         <div className="flex gap-2">
-                        <Link to={`/updateMyPost/${myPost._id}`}><button className="btn btn-success">Update</button></Link>
-                        <button onClick={() => handleDeletePost(myPost._id)} className="btn btn-warning">Delete</button>
+                        <Link to={`/updateMyPost/${myPost._id}`}><button className="btn bg-purple-600">Update</button></Link>
+                        <button onClick={() => handleDeletePost(myPost._id)} className="btn bg-orange-600">Delete</button>
                         </div>
 					</td>
 				</tr>

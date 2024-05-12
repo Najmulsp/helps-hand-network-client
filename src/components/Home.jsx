@@ -32,7 +32,7 @@ const Home = () => {
                   <div className="card-body">
                     <h2 className="card-title">
                       {volunteer.postTitle}
-                      <div className="badge badge-secondary">NEW</div>
+                      
                     </h2>
                     <p className="font-normal">
                       <span className="font-bold">Category: </span>
@@ -49,15 +49,15 @@ const Home = () => {
           </div>
           <div className="text-center">
             <Link to="/needVolunteers">
-              <button className="btn btn-primary mx-auto">See All</button>
+              <button className="btn bg-purple-500 mx-auto">See All</button>
             </Link>
           </div>
         </div>
       </div>
       {/* donation */}
 
-      <section className="border bg-purple-100 mt-10">
-        <div className="container flex flex-col justify-center items-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
+      <section className=" bg-purple-100 bg-opacity-70 mt-10">
+        <div className="container flex flex-col justify-center items-center p-2 mx-auto sm:py-3 lg:py-6 lg:flex-row lg:justify-between">
           <div className="flex items-center justify-center p-6 mt-8 lg:mt-0 ">
             <img
               src="https://i.ibb.co/jfN8VKx/donation.jpg"
@@ -66,7 +66,7 @@ const Home = () => {
             />
           </div>
           {/* donate form */}
-          <div className="flex flex-col justify-center p-6 text-center rounded-sm  lg:text-left border">
+          <div className="flex flex-col justify-center p-6 text-center rounded-sm  lg:text-left">
             <div className="p-6">
               <form
                 noValidate=""
@@ -152,8 +152,8 @@ const Home = () => {
                         <option value="">Paypal</option>
                       </select>
                     </div>
-                    <div className="relative border w-40 col-span-full sm:col-span-2">
-                      <button className="btn w-full px-4">Donate Now</button>
+                    <div className="relative  w-40 col-span-full sm:col-span-2">
+                      <button className="btn bg-purple-400 w-full px-4">Donate Now</button>
                       <GiSelfLove className="absolute top-5 right-1 "/>
                     </div>
                   </div>
@@ -164,18 +164,18 @@ const Home = () => {
         </div>
       </section>
       {/* meet our volunteers */}
-      <section className="py-6 dark:bg-gray-100 dark:text-gray-800">
+      <section className="py-2 mt-10 dark:bg-gray-100 dark:text-gray-800">
 	<div className="container p-4 mx-auto space-y-16 sm:p-10">
 		<div className="space-y-4">
 			<h3 className="text-2xl text-center font-bold leading-none sm:text-5xl">Meet Our Volunteers</h3>
-			<p className="max-w-2xl text-center mx-auto dark:text-gray-600">At a assumenda quas cum earum ut itaque commodi saepe rem aspernatur quam natus quis nihil quod, hic explicabo doloribus magnam neque, exercitationem eius sunt!</p>
+			<p className="max-w-2xl text-center mx-auto dark:text-gray-600">Welcome to Helps hand network, where every volunteer becomes a catalyst for change. Join us in our journey to transform lives, one act of kindness at a time</p>
 		</div>
 		<div className="grid w-full grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
 			<div className="space-y-4">
-				<img alt="" className="object-cover h-56 mx-auto mb-4 bg-center rounded-sm dark:bg-gray-500" src="https://source.unsplash.com/240x320/?portrait?0" />
+				<img alt="" className="object-cover h-56 mx-auto mb-4 bg-center rounded-sm dark:bg-gray-500" src="https://i.ibb.co/6YXKcrK/volunteeer-111y.jpg" />
 				<div className="flex flex-col items-center">
-					<h4 className="text-xl font-semibold">Leroy Jenkins</h4>
-					<p className="text-sm dark:text-gray-600">Web developer</p>
+					<h4 className="text-xl font-semibold">Md. Al-amin</h4>
+					<p className="text-sm dark:text-gray-600">Social Worker</p>
 					<div className="flex mt-2 space-x-2">
 						<a rel="noopener noreferrer" href="#" title="Twitter" className="dark:text-gray-600">
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="currentColor" className="w-4 h-4">
@@ -196,10 +196,10 @@ const Home = () => {
 				</div>
 			</div>
 			<div className="space-y-4">
-				<img alt="" className="object-cover h-56 mx-auto mb-4 bg-center rounded-sm dark:bg-gray-500" src="https://source.unsplash.com/240x320/?portrait?1" />
+				<img alt="" className="object-cover h-56 mx-auto mb-4 bg-center rounded-sm dark:bg-gray-500" src="https://i.ibb.co/4MpSMKj/volunteeer-444y.jpg" />
 				<div className="flex flex-col items-center">
-					<h4 className="text-xl font-semibold">Leroy Jenkins</h4>
-					<p className="text-sm dark:text-gray-600">Web developer</p>
+					<h4 className="text-xl font-semibold">ATM Soyaib</h4>
+					<p className="text-sm dark:text-gray-600">Social Worker</p>
 					<div className="flex mt-2 space-x-2">
 						<a rel="noopener noreferrer" href="#" title="Twitter" className="dark:text-gray-600">
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="currentColor" className="w-4 h-4">
@@ -220,10 +220,10 @@ const Home = () => {
 				</div>
 			</div>
 			<div className="space-y-4">
-				<img alt="" className="object-cover h-56 mx-auto mb-4 bg-center rounded-sm dark:bg-gray-500" src="https://source.unsplash.com/240x320/?portrait?2" />
+				<img alt="" className="object-cover h-56 mx-auto mb-4 bg-center rounded-sm dark:bg-gray-500" src="https://i.ibb.co/4gYj80z/volunteeer-331y.jpg" />
 				<div className="flex flex-col items-center">
-					<h4 className="text-xl font-semibold">Leroy Jenkins</h4>
-					<p className="text-sm dark:text-gray-600">Web developer</p>
+					<h4 className="text-xl font-semibold">Rakibul Islam</h4>
+					<p className="text-sm dark:text-gray-600">Social Worker</p>
 					<div className="flex mt-2 space-x-2">
 						<a rel="noopener noreferrer" href="#" title="Twitter" className="dark:text-gray-600">
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="currentColor" className="w-4 h-4">
@@ -244,10 +244,10 @@ const Home = () => {
 				</div>
 			</div>
 			<div className="space-y-4">
-				<img alt="" className="object-cover h-56 mx-auto mb-4 bg-center rounded-sm dark:bg-gray-500" src="https://source.unsplash.com/240x320/?portrait?3" />
+				<img alt="" className="object-cover h-56 mx-auto mb-4 bg-center rounded-sm dark:bg-gray-500" src="https://i.ibb.co/cvdkN9d/volunteeer-444y.jpg" />
 				<div className="flex flex-col items-center">
-					<h4 className="text-xl font-semibold">Leroy Jenkins</h4>
-					<p className="text-sm dark:text-gray-600">Web developer</p>
+					<h4 className="text-xl font-semibold">Mahmud Hasan</h4>
+					<p className="text-sm dark:text-gray-600">Social Worker</p>
 					<div className="flex mt-2 space-x-2">
 						<a rel="noopener noreferrer" href="#" title="Twitter" className="dark:text-gray-600">
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" fill="currentColor" className="w-4 h-4">
