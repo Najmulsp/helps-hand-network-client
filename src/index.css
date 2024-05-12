@@ -24,3 +24,24 @@ position: relative;
   display: block;
   position: absolute;
 }
+
+#right-menu{
+
+}
+.menu-button{
+  height: 50px;
+}
+.dropdown-menu{
+display: none;
+}
+
+#right-menu:hover .dropdown-menu{
+  display: block;
+}
+
+.dropdown-menu Link{
+background-color: aqua;
+padding: 10px;
+display: block;
+margin-top: 10px;
+}

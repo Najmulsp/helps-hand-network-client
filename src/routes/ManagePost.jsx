@@ -9,6 +9,7 @@ const ManagePost = () => {
     const { user } = useContext(AuthContext);
     
     const [myPosts, setMyPosts] = useState([]);
+    console.log(myPosts)
     
   
     useEffect(() => {
@@ -106,8 +107,8 @@ const ManagePost = () => {
 					</td>
 				</tr>
 			</tbody>
-                )
-            }
+                )}
+            
 		</table>
 	</div>
 </div>

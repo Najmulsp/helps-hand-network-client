@@ -35,9 +35,9 @@ const Banner = () => {
             data-aos="fade-right"
             data-aos-duration="2000"
             data-aos-delay="2000"
-            className="text-4xl lg:text-6xl absolute font-extrabold text-white text-left pt-4 lg:pt-20 top-1 left-16 lg:left-24 w-1/3">
+            className="text-4xl lg:text-6xl absolute font-extrabold text-white text-left pt-4 lg:pt-20 top-1 left-16 lg:left-24 w-2/3 lg:w-2/5">
           
-          Welcome to Misty Mrittika
+          We Can Change the World Together
           </h1>
           
           <p
@@ -67,9 +67,9 @@ const Banner = () => {
             data-aos="fade-right"
             data-aos-duration="2000"
             data-aos-delay="2000"
-            className="text-4xl lg:text-6xl absolute font-extrabold text-white text-left pt-4 lg:pt-20 top-1 left-16 lg:left-24 w-1/3">
+            className="text-4xl lg:text-6xl absolute font-extrabold text-white text-left pt-4 lg:pt-20 top-1 left-16 lg:left-24 w-2/3 lg:w-2/5">
           
-          Welcome to Misty Mrittika
+          We Can Change the World Together
           </h1>
           
           <p
@@ -99,9 +99,9 @@ const Banner = () => {
             data-aos="fade-right"
             data-aos-duration="2000"
             data-aos-delay="2000"
-            className="text-4xl lg:text-6xl absolute font-extrabold text-white text-left pt-4 lg:pt-20 top-1 left-16 lg:left-24 w-1/3">
+            className="text-4xl lg:text-6xl absolute font-extrabold text-white text-left pt-4 lg:pt-20 top-1 left-16 lg:left-24 w-2/3 lg:w-2/5">
           
-          Welcome to Misty Mrittika
+          We Can Change the World Together
           </h1>
           
           <p
@@ -131,16 +131,16 @@ const Banner = () => {
             data-aos="fade-right"
             data-aos-duration="2000"
             data-aos-delay="2000"
-            className="text-4xl lg:text-6xl absolute font-extrabold text-white text-left pt-4 lg:pt-20 top-1 left-16 lg:left-24 w-1/3">
+            className="text-4xl lg:text-6xl absolute font-extrabold text-white text-left pt-4 lg:pt-20 top-1 left-16 lg:left-24 w-2/3 lg:w-2/5">
           
-          Welcome to Misty Mrittika
+          We Can Change the World Together
           </h1>
           
           <p
             data-aos="fade-left"
             data-aos-duration="2000"
             data-aos-delay="2400"
-            className="absolute text-2xl lg:text-3xl font-bold text-white text-left pt-8 lg:top-64 top-32 left-16 lg:left-24 w-3/5">
+            className="absolute text-2xl lg:text-3xl font-bold text-white text-left pt-8 lg:top-64 top-32 left-16 lg:left-24 lg:w-2/5">
           
           Our Mission Is to Change The World
           </p>

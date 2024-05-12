@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
+import { TfiHandStop } from "react-icons/tfi";
 import Swal from "sweetalert2";
 import axios from "axios";
 
@@ -10,7 +11,7 @@ const Navbar = () => {
   const handleLogout = async () => {
     const { data } = await axios.post(`http://localhost:5000/logout`, user, {
       withCredentials: true,
-     });
+    });
     console.log(data);
     logout();
     Swal.fire({
@@ -41,7 +42,7 @@ const Navbar = () => {
         <NavLink
           className={({ isActive }) =>
             isActive
-              ? "border-2 px-2 lg:px-4  py-2 rounded-lg bg-orange-500 font-bold dark:text-black"
+              ? "border-2 px-2 lg:px-4  py-2 rounded-lg bg-orange-600 font-bold dark:text-black"
               : ""
           }
           to="/"
@@ -53,7 +54,7 @@ const Navbar = () => {
         <NavLink
           className={({ isActive }) =>
             isActive
-              ? "border-2 px-2 lg:px-4 py-2 rounded-lg bg-orange-500 font-bold dark:text-black"
+              ? "border-2 px-2 lg:px-4 py-2 rounded-lg bg-orange-600 font-bold dark:text-black"
               : ""
           }
           to="/needVolunteers"
@@ -65,7 +66,7 @@ const Navbar = () => {
         <NavLink
           className={({ isActive }) =>
             isActive
-              ? "border-2 px-2 lg:px-4 py-2 rounded-lg bg-orange-500 font-bold dark:text-black"
+              ? "border-2 px-2 lg:px-4 py-2 rounded-lg bg-orange-600 font-bold dark:text-black"
               : ""
           }
           to="/myRequestedPost"
@@ -75,7 +76,7 @@ const Navbar = () => {
       </li>
 
       <li>
-        <details className="dropdown">
+        {/* <details className="dropdown dropdown-hover">
           <summary className="">My Profile</summary>
           <ul className="p-2 shadow menu dropdown-content z-[1000] bg-base-100 rounded-box w-52">
             <li>
@@ -85,14 +86,40 @@ const Navbar = () => {
               <Link to="/managePost">Manage My Post</Link>
             </li>
           </ul>
-        </details>
+        </details> */}
+        {/* <div className="dropdown lg:dropdown-hover">
+  <div tabIndex={0} role="button" className="btn m-1">Hover</div>
+  <ul tabIndex={0} className="dropdown-content z-[1000] menu p-2 shadow bg-base-100 rounded-box w-52">
+    <li><a>Item 1</a></li>
+    <li><a>Item 2</a></li>
+  </ul>
+</div> */}
+        
+         <div id="right-menu" className="relative">
+          <NavLink className="menu-button">My Profile</NavLink>
+          <div className="absolute w-48 h-20  bg-purple-200 z-[1000] flex gap-6 flex-col border p-2 rounded-lg space-y-3 dropdown-menu">
+            <Link
+              to="/addVolunteers"
+              className="hover:bg-orange-600 rounded-lg py-1 px-3"
+            >
+              Add Volunteer Post
+            </Link>
+            <br />
+            <Link
+              to="/managePost"
+              className="hover:bg-purple-600 rounded-lg py-1 px-3"
+            >
+              Manage My Post
+            </Link>
+          </div>
+        </div>
       </li>
     </>
   );
   return (
     <div className="container mx-auto navbar bg-base-100 border">
       <div className="navbar-start">
-        <div className="dropdown z-50">
+        <div className="dropdown  z-50">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -111,15 +138,15 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className=" dropdown-content mt-3 z-[1] pl-4 shadow bg-base-100 rounded-box w-52 space-y-3 "
+            className=" dropdown-content mt-3 z-[1] pl-4 pb-4 shadow bg-base-100 rounded-box w-52 space-y-3 "
           >
             {navlinks}
           </ul>
         </div>
-        <Link className="btn btn-ghost text-xl">
+       
           {/* <img src="https://i.ibb.co/fM81cZF/logo-white.png" alt="" className="w-20 text-black" /> */}
-          Helps Hand Network
-        </Link>
+          <h1 className="flex items-center text-2xl font-bold text-purple-500 font-mono">Helps Hand <span className="inline px-2 text-orange-600"><TfiHandStop /></span> Network</h1>
+       
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="flex gap-4  px-1">{navlinks}</ul>
@@ -129,7 +156,7 @@ const Navbar = () => {
         {user ? (
           <div id="profileImg">
             <img
-              className=" md:w-12 lg:w-14  rounded-full "
+              className="w-12 md:w-12 lg:w-14  rounded-full "
               alt="profile picture"
               src={
                 user?.photoURL ||
@@ -138,16 +165,16 @@ const Navbar = () => {
             />
 
             <div id="dropdown" className=" w-40 rounded-lg z-30">
-              <h1 className="p-2 bg-red-200 rounded-lg text-center font-semibold  w-full">
+              <h1 className="p-2 bg-purple-400 rounded-lg text-center font-semibold  w-full">
                 {user.displayName || "user name not found"}
               </h1>
-              <button onClick={handleLogout} className="btn w-full btn-warning">
+              <button onClick={handleLogout} className="btn w-full bg-orange-600">
                 Log Out
               </button>
             </div>
           </div>
         ) : (
-          <Link className="btn px-6 btn-success" to="/login">
+          <Link className="btn px-6 btn-ghost" to="/login">
             Login
           </Link>
         )}

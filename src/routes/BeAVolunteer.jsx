@@ -57,6 +57,7 @@ const BeAVolunteer = () => {
         <Helmet>
                 <title>Home/ Be a Volunteer</title>
               </Helmet>
+              <h1 className="text-4xl text-center p-4">BECOME A VOLUNTEER</h1>
               <div className="text-center">
                 <div className="space-y-2 col-span-full  mb-4">
                   <p className="font-medium">Be a Volunteer</p>
