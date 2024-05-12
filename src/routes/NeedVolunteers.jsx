@@ -5,8 +5,28 @@ import { FaStackExchange } from "react-icons/fa";
 
 const NeedVolunteers = () => {
   const volunteers = useLoaderData();
+  // const [needPosts, setNeedPosts] = useState(null)
+
   const [layoutMode, setLayoutMode] = useState('card');
   const [search, setSearch] = useState('');
+
+    // if(volunteers.length > 0){
+    //   setNeedPosts(volunteers)
+    // }
+    // else{
+    //   return <>
+    //   <p className="text-center">At this service are not available, there is no events next, You can not be a volunteer right now, try next time</p>
+    //   </>
+    // }
+  // search by volunteer need post category
+  const handleSearch = e =>{
+    e.preventDefault()
+    const search = e.target.search.value;
+
+    setSearch(search)
+  }
+ 
+
 
   // Function to toggle layout mode
   const toggleLayout = () => {
@@ -18,10 +38,10 @@ const NeedVolunteers = () => {
       <Helmet>
         <title>Home/ Need Volunteers</title>
       </Helmet>
-      <div className="relative text-center mt-6">
+      <form onSubmit={handleSearch} className="relative text-center mt-6">
         <input type="text" name="search" className="border p-4 w-96 " />
         <button className="absolute btn right-[452px] top-1">Search</button>
-      </div>
+      </form>
        <div>
       
       <div className="text-right relative">
