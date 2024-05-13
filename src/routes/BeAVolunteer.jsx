@@ -1,12 +1,16 @@
 import { useLoaderData } from "react-router-dom";
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import Swal from 'sweetalert2'
+import DatePicker from "react-datepicker";
 
+import "react-datepicker/dist/react-datepicker.css";
 import { Helmet } from 'react-helmet-async';
 import { AuthContext } from "../provider/AuthProvider";
 
 const BeAVolunteer = () => {
     const volunteerPost = useLoaderData();
+    const [startDate, setStartDate] = useState(new Date());
+
     const {user} = useContext(AuthContext);
     // console.log(user)
 
@@ -18,7 +22,7 @@ const BeAVolunteer = () => {
         const category = e.target.category.value;
         const location = e.target.location.value;
         const quantity = e.target.quantity.value;
-        const deadline = e.target.deadline.value;
+        const deadline = startDate;
         const organizerName = e.target.organizerName.value;
         const organizerEmail = e.target.organizerEmail.value;
         const volunteerName = e.target.volunteerName.value;
@@ -157,13 +161,10 @@ const BeAVolunteer = () => {
                       >
                         Deadline
                       </label>
-                      <input
-                        name="deadline"
-                        type="text"
-                        defaultValue={volunteerPost?.[0].deadline}
-                        readOnly
-                        className="w-full border-2 rounded-md focus:ring focus:ring-opacity-75  focus:dark:ring-violet-600 dark:border-gray-300 p-3"
-                      />
+                      <DatePicker
+                      className="border-2 p-3 rounded-md w-80"
+                      selected={startDate} onChange={(date) => setStartDate(date)} />
+
                     </div>
                     {/* Organizer name */}
                     <div className="col-span-full sm:col-span-3">

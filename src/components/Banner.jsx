@@ -5,7 +5,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import { Link } from "react-router-dom";
+
 
 const Banner = () => {
   return (
@@ -15,7 +15,7 @@ const Banner = () => {
       slidesPerView={1}
       navigation
       autoplay={{
-        delay: 5000,
+        delay: 7000,
         disableOnInteraction: false,
       }}
       loop={true}
@@ -55,9 +55,9 @@ const Banner = () => {
 
           <div className="absolute text-xl font-semibold text-white text-left mt-6  lg:top-96 top-72 left-16 lg:left-24">
             <p
-            data-aos="fade-down"
+            data-aos="fade-up"
             data-aos-duration="2000"
-            data-aos-delay="3000"
+            data-aos-delay="2000"
             className="flex items-center p-2 ">
               Scroll Down
               <span>

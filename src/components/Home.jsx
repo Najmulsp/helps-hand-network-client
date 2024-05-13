@@ -1,11 +1,27 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Banner from "./Banner";
 import { Helmet } from "react-helmet-async";
 import { GiSelfLove } from "react-icons/gi";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Home = () => {
-  const volunteers = useLoaderData();
-  const needVolunteers = volunteers.slice(0, 6);
+  // const volunteers = useLoaderData();
+  const [volunteers, setVolunteers] = useState(null)
+  const needVolunteers = volunteers?.slice(0, 6);
+  const [sort, setSort] = useState('')
+
+console.log(volunteers)
+
+    useEffect( () => {
+        const getData = async () =>{
+          const {data} = await axios(`http://localhost:5000/volunteers?sort=${sort}`)
+          setVolunteers(data)
+        }
+        getData()
+    }, [sort] )
+
+
   return (
     <div>
       <Helmet>
@@ -18,8 +34,22 @@ const Home = () => {
           <p className="text-center w-80 lg:w-full mx-auto">
             We Needs Volunteers for the Upcoming Events
           </p>
+          <div className="text-right mr-12">
+            <select
+            onChange={e =>{
+              setSort(e.target.value)
+            }}
+            value={sort}
+             name="sort"
+              id="sort"
+               className="border rounded-lg p-2 bg-purple-600">
+              <option value="">Sort By Deadline</option>
+              <option value="dsc">Descending Order</option>
+              <option value="asc">Ascending Order</option>
+            </select>
+          </div>
           <div className="container md:w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-10 mx-auto gap-6 justify-around">
-            {needVolunteers.map((volunteer) => (
+            {needVolunteers?.map((volunteer) => (
               <div key={volunteer._id}>
                 <div className="card rounded-md w-96 md:w-80 lg:w-96 bg-base-100 shadow-xl mx-auto ">
                   <figure>
@@ -62,7 +92,7 @@ const Home = () => {
             <img
               src="https://i.ibb.co/jfN8VKx/donation.jpg"
               alt=""
-              className="object-contain border h-full pt-2"
+              className="object-contain h-full pt-7"
             />
           </div>
           {/* donate form */}

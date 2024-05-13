@@ -1,10 +1,15 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../provider/AuthProvider";
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
 
 const UpdateMyPost = () => {
+  const [startDate, setStartDate] = useState(new Date());
+
   const { user } = useContext(AuthContext);
   const singlePost = useLoaderData();
   console.log(singlePost);
@@ -16,7 +21,7 @@ const UpdateMyPost = () => {
     const category = e.target.category.value;
     const location = e.target.location.value;
     const quantity = e.target.quantity.value;
-    const deadline = e.target.deadline.value;
+    const deadline = startDate;
     const organizerName = e.target.organizerName.value;
     const organizerEmail = user?.email;
     const photo = e.target.photo.value;
@@ -149,12 +154,10 @@ const UpdateMyPost = () => {
               >
                 Deadline
               </label>
-              <input
-                name="deadline"
-                type="text"
-                defaultValue={singlePost.deadline}
-                className="w-full border-2 rounded-md focus:ring focus:ring-opacity-75  focus:dark:ring-violet-600 dark:border-gray-300 p-3"
-              />
+              <DatePicker
+              className="border-2 p-3 rounded-md w-80"
+              selected={startDate} onChange={(date) => setStartDate(date)} />
+
             </div>
             {/* Organizer name */}
             <div className="col-span-full sm:col-span-3">

@@ -4,6 +4,8 @@ import { AuthContext } from "../provider/AuthProvider";
 import { TfiHandStop } from "react-icons/tfi";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { Typewriter } from 'react-simple-typewriter'
+
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
@@ -145,7 +147,15 @@ const Navbar = () => {
         </div>
        
           {/* <img src="https://i.ibb.co/fM81cZF/logo-white.png" alt="" className="w-20 text-black" /> */}
-          <h1 className="flex items-center text-2xl font-bold text-purple-500 font-mono">Helps Hand <span className="inline px-2 text-orange-600"><TfiHandStop /></span> Network</h1>
+          <h1 className="flex items-center text-2xl font-bold text-purple-500 font-mono"><Typewriter
+              words={['Helps Hand Network']}
+              loop
+              // cursor
+              typeSpeed={70}
+              deleteSpeed={50}
+              delaySpeed={1000}              
+            /> <TfiHandStop /></h1>
+          {/* <h1 className="flex items-center text-2xl font-bold text-purple-500 font-mono">Helps Hand <span className="inline px-2 text-orange-600"><TfiHandStop /></span> Network</h1> */}
        
       </div>
       <div className="navbar-center hidden lg:flex">

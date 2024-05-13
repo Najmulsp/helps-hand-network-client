@@ -1,9 +1,13 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../provider/AuthProvider";
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
 
 const AddVolunteers = () => {
+  const [startDate, setStartDate] = useState(new Date());
 
   const { user } = useContext(AuthContext);
   console.log(user.email);
@@ -15,11 +19,11 @@ const AddVolunteers = () => {
     const category = e.target.category.value;
     const location = e.target.location.value;
     const quantity = e.target.quantity.value;
-    const deadline = e.target.deadline.value;
+    const deadline = startDate;
     const organizerName = e.target.organizerName.value;
     const organizerEmail = user?.email;
     const photo = e.target.photo.value;
-
+console.log(deadline)
     const addData = {
       postTitle,
       description,
@@ -148,12 +152,17 @@ const AddVolunteers = () => {
               >
                 Deadline
               </label>
-              <input
+              {/* <input
                 name="deadline"
-                type="text"
+                type="date"
                 placeholder="Deadline"
                 className="w-full border-2 rounded-md focus:ring focus:ring-opacity-75  focus:dark:ring-violet-600 dark:border-gray-300 p-3"
-              />
+              /> */}
+                  <DatePicker
+                  className="border-2 p-3 rounded-md w-80"
+                  selected={startDate} 
+                  onChange={(date) => setStartDate(date)} />
+
             </div>
             {/* Organizer name */}
             <div className="col-span-full sm:col-span-3">

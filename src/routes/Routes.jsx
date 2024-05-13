@@ -22,12 +22,12 @@ const router = createBrowserRouter([
         {
             path:"/",
             element: <Home></Home>,
-            loader: () => fetch('http://localhost:5000/volunteers')
+            // loader: () => fetch('http://localhost:5000/volunteers')
         },
         {
             path:"/needVolunteers",
             element: <NeedVolunteers></NeedVolunteers>,
-            loader: () => fetch('http://localhost:5000/volunteers')
+            // loader: () => fetch('http://localhost:5000/volunteers')
         },
         {
             path:"/postDetails/:id",
