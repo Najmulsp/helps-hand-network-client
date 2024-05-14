@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 import { useContext, useState } from 'react';
 import Swal from 'sweetalert2'
 import DatePicker from "react-datepicker";
@@ -10,9 +10,13 @@ import { AuthContext } from "../provider/AuthProvider";
 const BeAVolunteer = () => {
     const volunteerPost = useLoaderData();
     const [startDate, setStartDate] = useState(new Date());
+  // const {id} = useParams();
+  // console.log(id)
+
+    // const [count, setCount] = useState(volunteerPost);
 
     const {user} = useContext(AuthContext);
-    // console.log(user)
+    console.log(volunteerPost)
 
     const handleAVolunteer = e =>{
         e.preventDefault();
@@ -47,6 +51,24 @@ const BeAVolunteer = () => {
         .then(data => {
             console.log(data)
             if(data?.insertedId){
+
+         // update quantity
+        fetch(`http://localhost:5000/updateQuantity/${volunteerPost[0]._id}`,{
+          method: "PATCH",
+          headers: { "content-type": "application/json" },
+          // body: JSON.stringify(quantity),
+        })
+        .then(res => res.json())
+        .then(data =>{
+            if(data.modifiedCount > 0){
+
+              e.target.quantity.value= quantity -1;
+            }
+          // console.log(data)
+        }
+  
+        )
+
               Swal.fire({
                 title: 'Success!',
                 text: 'Your request added successfully',
@@ -55,6 +77,9 @@ const BeAVolunteer = () => {
               })
             }
         })
+
+
+     
     }
     return (
         <div>
@@ -148,8 +173,9 @@ const BeAVolunteer = () => {
                       </label>
                       <input
                         name="quantity"
-                        type="text"
-                        placeholder="Quantity needed"
+                        type="number"
+                        defaultValue={volunteerPost?.[0].quantity}
+                        readOnly
                         className="w-full border-2  rounded-md focus:ring focus:ring-opacity-75  focus:dark:ring-violet-600 dark:border-gray-300 p-3"
                       />
                     </div>
@@ -162,7 +188,7 @@ const BeAVolunteer = () => {
                         Deadline
                       </label>
                       <DatePicker
-                      className="border-2 p-3 rounded-md w-80"
+                      className="border-2 p-3 rounded-md w-72 lg:w-80"
                       selected={startDate} onChange={(date) => setStartDate(date)} />
 
                     </div>
@@ -286,7 +312,7 @@ const BeAVolunteer = () => {
                       <button
                         type="submit"
                         value="Add Coffee"
-                        className="bg-violet-400 rounded-md btn btn-block p-3"
+                        className="bg-violet-400 dark:text-black rounded-md btn btn-block p-3"
                       >Request</button>
                     </div>
                   </form>

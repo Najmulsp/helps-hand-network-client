@@ -53,7 +53,7 @@ const MyReqestedPost = () => {
       <Helmet>
         <title>Home/ My Post</title>
       </Helmet>
-      <h2 className="mb-4 text-2xl font-semibold leading-tight">Invoices</h2>
+      <h2 className="mb-4 text-2xl font-semibold leading-tight">These are Your Requsted Post</h2>
       <div className="overflow-x-auto">
         <table className="min-w-full text-xs">
           <colgroup>
@@ -66,11 +66,11 @@ const MyReqestedPost = () => {
           </colgroup>
           <thead className="dark:bg-gray-300">
             <tr className="text-left">
-              <th className="p-3">Invoice #</th>
-              <th className="p-3">Client</th>
-              <th className="p-3">Issued</th>
-              <th className="p-3">Due</th>
-              <th className="p-3 text-right">Amount</th>
+              <th className="p-3">Thumbnail</th>
+              <th className="p-3">Post Title</th>
+              <th className="p-3">Category</th>
+              <th className="p-3">Deadline</th>
+              <th className="p-3">location</th>
               <th className="p-3">Status</th>
             </tr>
           </thead>
@@ -90,11 +90,11 @@ const MyReqestedPost = () => {
 						
 					</td>
 					<td className="p-3">
-						<p>{myRequestPost.deadline}</p>
+						<p>{new Date(myRequestPost.deadline).toLocaleDateString()}</p>
 						
 					</td>
-					<td className="p-3 text-right">
-						<p>$15,792</p>
+					<td className="p-3">
+						<p>{myRequestPost.location}</p>
 					</td>
 					<td className="p-3 text-right">
                         

@@ -3,6 +3,7 @@ import { Link, useLoaderData } from "react-router-dom";
 
 const PostDetails = () => {
   const volunteerPost = useLoaderData();
+  console.log(volunteerPost)
 
   // const {thumbnail, postTitle, category, deadline} = volunteerPost
   return (
@@ -36,8 +37,8 @@ const PostDetails = () => {
             </div>
           </div>
           <p>
-            <span className="font-bold">Description: </span>
-            {volunteerPost?.description}
+            <span className="font-bold">Location </span>
+            {volunteerPost?.[0].location}
           </p>
           <Link to={`/beAVolunteer/${volunteerPost?.[0]._id}`}>
             <button className="btn bg-purple-600">Be a Volunteer</button>

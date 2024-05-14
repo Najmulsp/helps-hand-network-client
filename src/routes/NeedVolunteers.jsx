@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { Link} from "react-router-dom";
 import { FaStackExchange } from "react-icons/fa";
 import axios from "axios";
+import { toast } from "react-toastify";
 // import { AuthContext } from "../provider/AuthProvider";
 
 const NeedVolunteers = () => {
@@ -16,7 +17,10 @@ const NeedVolunteers = () => {
   useEffect(()=>{
     axios.get(`http://localhost:5000/needPosts?search=${search}`)
     .then(data => {
-      // console.log(data)
+      // console.log(data.data)
+      if(data.data.length === 0){
+        toast('Currently We do not need any volunteer')
+      }
       setVolunteers(data.data)
     })
   }, [search])
@@ -52,10 +56,10 @@ const NeedVolunteers = () => {
       </Helmet>
       <form onSubmit={handleSearch} className="relative text-center mt-6">
         <input type="text" name="search" className="border p-4 w-96 rounded-full" />
-        <button className="absolute btn rounded-r-full  bg-purple-600 right-[452px] top-1 ">Search</button>
+        <button className="absolute btn rounded-r-full  bg-purple-600 right-16 lg:right-[452px] top-1 ">Search</button>
       </form>
       <div>
-        <div className="text-right relative">
+        <div className="text-right relative mt-2 mr-12">
           <button onClick={toggleLayout} className="btn bg-purple-500 w-44  p-2">
             Change Layout
           </button>

@@ -9,7 +9,8 @@ const ManagePost = () => {
     const { user } = useContext(AuthContext);
     
     const [myPosts, setMyPosts] = useState([]);
-    console.log(myPosts)
+    // const {deadline} = myPosts
+    // console.log(deadline)
     
   
     useEffect(() => {
@@ -57,7 +58,7 @@ const ManagePost = () => {
         <title>Home/ My Post</title>
       </Helmet>
       <div className="container p-2 mx-auto sm:p-4 dark:text-gray-800">
-	<h2 className="mb-4 text-2xl font-semibold leading-tight">Invoices</h2>
+	<h2 className="mb-4 text-2xl font-semibold leading-tight">You Can Manage Your Post Here</h2>
 	<div className="overflow-x-auto">
 		<table className="min-w-full text-xs">
 			<colgroup>
@@ -70,16 +71,16 @@ const ManagePost = () => {
 			</colgroup>
 			<thead className="dark:bg-gray-300">
 				<tr className="text-left">
-					<th className="p-3">Photo</th>
+					<th className="p-3">Thumbnail</th>
 					<th className="p-3">Title</th>
 					<th className="p-3">Category</th>
 					<th className="p-3">Deadline</th>
-					<th className="p-3 text-right">Amount</th>
-					<th className="p-3">Status</th>
+					<th className="p-3">Location</th>
+					<th className="p-3 text-center ">Status</th>
 				</tr>
 			</thead>
 			{
-                myPosts.map(myPost =>
+                myPosts?.map(myPost =>
                     <tbody key={myPost._id}>
 				<tr className="border-b border-opacity-20 dark:border-gray-300 dark:bg-gray-50">
 					<td className="p-3">
@@ -93,11 +94,11 @@ const ManagePost = () => {
 						
 					</td>
 					<td className="p-3">
-						<p>{myPost.deadline}</p>
+						<p>{new Date(myPost.deadline).toLocaleDateString()}</p>
 						
 					</td>
-					<td className="p-3 text-right">
-						<p>$15,792</p>
+					<td className="p-3">
+						<p>Dhaka,Bangladesh</p>
 					</td>
 					<td className="p-3 text-right">
                         <div className="flex gap-2">

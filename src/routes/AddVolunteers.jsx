@@ -19,11 +19,14 @@ const AddVolunteers = () => {
     const category = e.target.category.value;
     const location = e.target.location.value;
     const quantity = e.target.quantity.value;
-    const deadline = startDate;
+    const deadline =startDate;
     const organizerName = e.target.organizerName.value;
     const organizerEmail = user?.email;
     const photo = e.target.photo.value;
-console.log(deadline)
+
+    const deadlines = parseInt(deadline)
+console.log(deadlines)
+
     const addData = {
       postTitle,
       description,
@@ -54,6 +57,7 @@ console.log(deadline)
           });
         }
       });
+      
   };
   return (
     <div className="border rounded-xl w-4/5 lg:w-3/5 mx-auto p-6 mt-8">
@@ -139,7 +143,7 @@ console.log(deadline)
               </label>
               <input
                 name="quantity"
-                type="text"
+                type="number"
                 placeholder="Quantity"
                 className="w-full border-2  rounded-md focus:ring focus:ring-opacity-75  focus:dark:ring-violet-600 dark:border-gray-300 p-3"
               />
