@@ -4,6 +4,7 @@ import { Link} from "react-router-dom";
 import { FaStackExchange } from "react-icons/fa";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { FaLongArrowAltDown } from "react-icons/fa";
 
 
 const NeedVolunteers = () => {
@@ -108,7 +109,7 @@ const NeedVolunteers = () => {
                     <th className="p-3">Category</th>
                     <th className="p-3">Deadline</th>
                     <th className="p-3 text-right pl-6">Location</th>
-                    <th className="p-3 text-right mr-2">Status</th>
+                    <th className="p-3 text-center flex items-center mr-2">Be a volunteeer <FaLongArrowAltDown className="text-2xl text-purple-500"/></th>
                   </tr>
                 </thead>
                 {volunteers?.map((volunteer) => (
@@ -134,7 +135,11 @@ const NeedVolunteers = () => {
                         <p>{volunteer.location}</p>
                       </td>
                       <td className="p-3 text-right">
-                        <p>{volunteer.status}</p>
+                      <Link to={`/postDetails/${volunteer?._id}`}>
+                      <button className="btn hover:bg-gradient-to-br focus:ring-purple-300 bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700">
+                        Post Details
+                      </button>
+                    </Link>
                       </td>
                        
                     </tr>

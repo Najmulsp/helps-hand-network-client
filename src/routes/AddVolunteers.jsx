@@ -24,7 +24,7 @@ const AddVolunteers = () => {
     const organizerEmail = user?.email;
     const photo = e.target.photo.value;
 
-    const deadlines = parseInt(deadline)
+    
 
 
     const addData = {
