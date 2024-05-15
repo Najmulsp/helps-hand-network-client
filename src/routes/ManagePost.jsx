@@ -9,8 +9,7 @@ const ManagePost = () => {
     const { user } = useContext(AuthContext);
     
     const [myPosts, setMyPosts] = useState([]);
-    // const {deadline} = myPosts
-    // console.log(deadline)
+   
     
   
     useEffect(() => {
@@ -58,8 +57,8 @@ const ManagePost = () => {
         <title>Home/ My Post</title>
       </Helmet>
       <div className="container p-2 mx-auto sm:p-4 dark:text-gray-800">
-	<h2 className="mb-4 text-2xl font-semibold leading-tight">You Can Manage Your Post Here</h2>
-	<div className="overflow-x-auto">
+	<h2 className="mb-4 text-2xl font-semibold leading-tight">You Can Update or Delete Your Post Here</h2>
+	<div className="overflow-x-auto ">
 		<table className="min-w-full text-xs">
 			<colgroup>
 				<col />
@@ -84,17 +83,17 @@ const ManagePost = () => {
                     <tbody key={myPost._id}>
 				<tr className="border-b border-opacity-20 dark:border-gray-300 dark:bg-gray-50">
 					<td className="p-3">
-						<img src={myPost.photo} alt="" className="w-20 h-20 rounded-lg"/>
+						<img src={myPost?.photo} alt="" className="w-20 h-20 rounded-lg"/>
 					</td>
 					<td className="p-3">
-						<p>{myPost.postTitle}</p>
+						<p>{myPost?.postTitle}</p>
 					</td>
 					<td className="p-3">
-						<p>{myPost.category}</p>
+						<p>{myPost?.category}</p>
 						
 					</td>
 					<td className="p-3">
-						<p>{new Date(myPost.deadline).toLocaleDateString()}</p>
+						<p>{new Date(myPost?.deadline).toLocaleDateString()}</p>
 						
 					</td>
 					<td className="p-3">
@@ -102,8 +101,8 @@ const ManagePost = () => {
 					</td>
 					<td className="p-3 text-right">
                         <div className="flex gap-2">
-                        <Link to={`/updateMyPost/${myPost._id}`}><button className="btn bg-purple-600">Update</button></Link>
-                        <button onClick={() => handleDeletePost(myPost._id)} className="btn bg-orange-600">Delete</button>
+                        <Link to={`/updateMyPost/${myPost?._id}`}><button className="btn bg-gradient-to-r from-purple-400 via-purple-500 to-purple-700 hover:bg-gradient-to-br focus:ring-purple-300">Update</button></Link>
+                        <button onClick={() => handleDeletePost(myPost?._id)} className="btn bg-gradient-to-r from-orange-400 via-orange-500 to-orange-700 hover:bg-gradient-to-br focus:ring-purple-300">Delete</button>
                         </div>
 					</td>
 				</tr>

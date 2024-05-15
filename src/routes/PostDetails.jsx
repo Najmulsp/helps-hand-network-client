@@ -19,6 +19,10 @@ const PostDetails = () => {
             className="h-96 w-full"
           />
         </figure>
+        <div className=" text-center  flex justify-between  ml-8  ">
+                    <p className="py-2 text-purple-500 font-bold">We need total <span className="text-orange-500">{volunteerPost?.[0].quantity}</span>  volunteers</p>
+                    <p className="px-1 w-32 bg-purple-700 text-white rounded-l-full py-2"><span className="">Status:</span> Requested</p>
+                  </div>
         <div className="card-body">
           <h1 className="card-title">
             <span className="font-bold">Name:</span>

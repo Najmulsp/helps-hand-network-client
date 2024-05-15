@@ -6,12 +6,11 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 const Home = () => {
-  // const volunteers = useLoaderData();
+
   const [volunteers, setVolunteers] = useState(null)
   const needVolunteers = volunteers?.slice(0, 6);
   const [sort, setSort] = useState('')
 
-// console.log(volunteers)
 
     useEffect( () => {
         const getData = async () =>{
@@ -30,7 +29,7 @@ const Home = () => {
       <Banner></Banner>
       <div>
         <div className="mt-10 container mx-auto">
-          <h1 className="text-4xl text-center p-4">Our Programs</h1>
+          <h1 className="text-4xl font-bold text-center p-4">Our Programs</h1>
           <p className="text-center w-80 lg:w-full mx-auto">
             We Needs Volunteers for the Upcoming Events
           </p>
@@ -42,7 +41,7 @@ const Home = () => {
             value={sort}
              name="sort"
               id="sort"
-               className="border rounded-lg p-2 bg-purple-600">
+               className="border rounded-lg p-2 bg-gradient-to-r from-purple-500 via-purple-600 to-purple-800">
               <option value="">Sort By Deadline</option>
               <option value="dsc">Descending Order</option>
               <option value="asc">Ascending Order</option>
@@ -83,7 +82,7 @@ const Home = () => {
           </div>
           <div className="text-center">
             <Link to="/needVolunteers">
-              <button className="btn bg-purple-500 mx-auto">See All</button>
+              <button className="btn bg-gradient-to-r from-purple-400 via-purple-500 to-purple-700 hover:bg-gradient-to-br focus:ring-purple-300 mx-auto">See All</button>
             </Link>
           </div>
         </div>
@@ -187,7 +186,7 @@ const Home = () => {
                       </select>
                     </div>
                     <div className="relative  w-40 col-span-full sm:col-span-2">
-                      <button className="btn bg-purple-400 w-full px-4">Donate Now</button>
+                      <button className="btn bg-gradient-to-r from-purple-500 via-purple-600 to-purple-800 w-full px-4">Donate Now</button>
                       <GiSelfLove className="absolute top-5 right-1 "/>
                     </div>
                   </div>

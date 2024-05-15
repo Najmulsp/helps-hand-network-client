@@ -9,7 +9,7 @@ const PrivetRoute = ({children}) => {
     const location = useLocation();
     
     if(loading){
-        return <span className="loading loading-spinner loading-lg"></span>
+        return <div className="w-full flex justify-center py-6"><span className="loading loading-spinner loading-lg text-purple-600"></span></div>
     }
         if(user?.email){
             return children

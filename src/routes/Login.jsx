@@ -6,9 +6,10 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { toast } from "react-toastify";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const Login = () => {
-  const { user, login, googleLogin } = useContext(AuthContext);
+  const { login, googleLogin } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
@@ -39,7 +40,7 @@ const Login = () => {
       // })
     } catch (err) {
       console.log(err);
-      toast("User email or password not matched");
+      toast.error("User email or password not matched");
     }
   };
 
@@ -51,7 +52,14 @@ const Login = () => {
       { email: result?.user?.email },
       { withCredentials: true }
     );
-    console.log(data);
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "You have successfully logged in",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+    console.log(data)
     // navigate after log in
     navigate(location?.state ? location.state : "/");
   };
@@ -63,7 +71,7 @@ const Login = () => {
       </Helmet>
       <div className="hero-content w-4/5">
         <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <h1 className="text-5xl text-center text-orange-600 font-bold px-4 mt-6">
+          <h1 className="text-5xl text-center text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-purple-600 to-orange-700 font-bold px-4 mt-6">
             Login now!
           </h1>
           <div className="mt-6">
@@ -71,7 +79,7 @@ const Login = () => {
               onClick={handleGoogleLogin}
               aria-label="Login with Google"
               type="button"
-              className="flex btn items-center justify-center w-4/5 mx-auto p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-600 focus:dark:ring-violet-600"
+              className="flex btn items-center justify-center w-4/5 mx-auto p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-orange-600 focus:dark:ring-violet-600"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -120,7 +128,7 @@ const Login = () => {
             </div>
 
             <div className="form-control mt-6">
-              <button className="btn bg-orange-600">Login</button>
+              <button className="btn bg-gradient-to-r from-orange-500 via-purple-600 to-orange-700 hover:bg-gradient-to-br focus:ring-purple-300">Login</button>
             </div>
           </form>
 

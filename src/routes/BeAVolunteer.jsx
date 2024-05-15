@@ -312,7 +312,7 @@ const BeAVolunteer = () => {
                       <button
                         type="submit"
                         value="Add Coffee"
-                        className="bg-violet-400 dark:text-black rounded-md btn btn-block p-3"
+                        className="bg-gradient-to-r from-purple-400 via-purple-500 to-purple-700 hover:bg-gradient-to-br focus:ring-purple-300 dark:text-black rounded-md btn btn-block p-3"
                       >Request</button>
                     </div>
                   </form>

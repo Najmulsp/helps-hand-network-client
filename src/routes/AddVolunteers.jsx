@@ -66,7 +66,7 @@ console.log(deadlines)
       </Helmet>
       <div className="text-center">
         <div className="space-y-2 col-span-full  mb-4">
-          <p className="font-medium">Add Your Post <br />to inform us and get help from Help Hand Network</p>
+          <p className="font-medium"><span className="text-4xl font bold">Add Your Post</span> <br />to inform us and get helps from Help Hand Network</p>
         </div>
         <div className="grid grid-cols-2 gap-6 p-6 rounded-md shadow-sm ">
           <form
@@ -156,12 +156,7 @@ console.log(deadlines)
               >
                 Deadline
               </label>
-              {/* <input
-                name="deadline"
-                type="date"
-                placeholder="Deadline"
-                className="w-full border-2 rounded-md focus:ring focus:ring-opacity-75  focus:dark:ring-violet-600 dark:border-gray-300 p-3"
-              /> */}
+             
                   <DatePicker
                   className="border-2 p-3 rounded-md w-80"
                   selected={startDate} 
@@ -215,7 +210,7 @@ console.log(deadlines)
               <button
                 type="submit"
                 value="Add Coffee"
-                className="bg-violet-400 rounded-md btn btn-block p-3"
+                className="bg-gradient-to-r from-purple-600 via-purple-500 to-purple-700 hover:bg-gradient-to-br focus:ring-purple-300 rounded-md btn btn-block p-3"
               >
                 Request
               </button>

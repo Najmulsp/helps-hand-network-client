@@ -27,7 +27,7 @@ const router = createBrowserRouter([
         {
             path:"/needVolunteers",
             element: <NeedVolunteers></NeedVolunteers>,
-            // loader: () => fetch('http://localhost:5000/volunteers')
+            // loader: ({params}) => fetch(`http://localhost:5000/postDetails/${params.id}`)
         },
         {
             path:"/postDetails/:id",

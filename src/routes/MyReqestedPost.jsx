@@ -53,16 +53,16 @@ const MyReqestedPost = () => {
       <Helmet>
         <title>Home/ My Post</title>
       </Helmet>
-      <h2 className="mb-4 text-2xl font-semibold leading-tight">These are Your Requsted Post</h2>
+      <h2 className="mb-4 text-2xl font-semibold leading-tight"><span className="font-bold">These are Your Requsted Post</span> <br /> You can also cancel your post here</h2>
       <div className="overflow-x-auto">
-        <table className="min-w-full text-xs">
+        <table className="lg:min-w-full min-w-96 text-xs">
           <colgroup>
             <col />
             <col />
             <col />
             <col />
             <col />
-            <col className="w-24" />
+            <col className="lg:w-24" />
           </colgroup>
           <thead className="dark:bg-gray-300">
             <tr className="text-left">
@@ -76,29 +76,29 @@ const MyReqestedPost = () => {
           </thead>
           
           {
-                myRequestPosts.map(myRequestPost =>
-                    <tbody key={myRequestPosts._id}>
+                myRequestPosts?.map(myRequestPost =>
+                    <tbody key={myRequestPosts?._id}>
 				<tr className="border-b border-opacity-20 dark:border-gray-300 dark:bg-gray-50">
 					<td className="p-3">
-						<img src={myRequestPost.photo} alt="" className="w-20 h-20 rounded-lg"/>
+						<img src={myRequestPost?.photo} alt="" className="w-20 h-20 rounded-lg"/>
 					</td>
 					<td className="p-3">
-						<p>{myRequestPost.postTitle}</p>
+						<p>{myRequestPost?.postTitle}</p>
 					</td>
 					<td className="p-3">
-						<p>{myRequestPost.category}</p>
+						<p>{myRequestPost?.category}</p>
 						
 					</td>
 					<td className="p-3">
-						<p>{new Date(myRequestPost.deadline).toLocaleDateString()}</p>
+						<p>{new Date(myRequestPost?.deadline).toLocaleDateString()}</p>
 						
 					</td>
 					<td className="p-3">
-						<p>{myRequestPost.location}</p>
+						<p>{myRequestPost?.location}</p>
 					</td>
-					<td className="p-3 text-right">
+					<td className="p-3 pl-0 text-left">
                         
-                        <button onClick={() => handleCancelPost(myRequestPost._id)} className="btn btn-warning">Cancel</button>
+                        <button onClick={() => handleCancelPost(myRequestPost?._id)} className="btn bg-gradient-to-r from-orange-600 via-orange-500 to-orange-700 hover:bg-gradient-to-br focus:ring-purple-300">Cancel</button>
                         
 					</td>
 				</tr>

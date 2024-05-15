@@ -78,25 +78,7 @@ const Navbar = () => {
       </li>
 
       <li>
-        {/* <details className="dropdown dropdown-hover">
-          <summary className="">My Profile</summary>
-          <ul className="p-2 shadow menu dropdown-content z-[1000] bg-base-100 rounded-box w-52">
-            <li>
-              <Link to="/addVolunteers">Add Volunteer Post</Link>
-            </li>
-            <li>
-              <Link to="/managePost">Manage My Post</Link>
-            </li>
-          </ul>
-        </details> */}
-        {/* <div className="dropdown lg:dropdown-hover">
-  <div tabIndex={0} role="button" className="btn m-1">Hover</div>
-  <ul tabIndex={0} className="dropdown-content z-[1000] menu p-2 shadow bg-base-100 rounded-box w-52">
-    <li><a>Item 1</a></li>
-    <li><a>Item 2</a></li>
-  </ul>
-</div> */}
-        
+ 
          <div id="right-menu" className="relative">
           <NavLink className="menu-button">My Profile</NavLink>
           <div className="absolute w-48 h-20  bg-purple-200 z-[1000] flex gap-6 flex-col border p-2 rounded-lg space-y-3 dropdown-menu">
@@ -119,7 +101,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="container mx-auto navbar bg-base-100 border">
+    <div className="container mx-auto navbar bg-base-100">
       <div className="navbar-start">
         <div className="dropdown  z-50">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -145,17 +127,9 @@ const Navbar = () => {
             {navlinks}
           </ul>
         </div>
-       
-          {/* <img src="https://i.ibb.co/fM81cZF/logo-white.png" alt="" className="w-20 text-black" /> */}
-          {/* <h1 className="flex items-center text-2xl font-bold text-purple-500 font-mono"> <Typewriter
-              words={['Helps Hand Network']}
-              loop
-              // cursor
-              typeSpeed={70}
-              deleteSpeed={50}
-              delaySpeed={1000}              
-            /> <TfiHandStop className="mr-2"/></h1> */}
-          <h1 className="flex items-center text-2xl font-bold text-purple-500 font-mono">Helps Hand <span className="inline px-2 text-orange-600"><TfiHandStop /></span> Network</h1>
+    
+          <h1 className="flex items-center text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-purple-600 to-orange-700 font-mono">Helps Hand <span className="inline px-2 text-purple-600"><TfiHandStop /></span> Network</h1>
+         
        
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -174,17 +148,17 @@ const Navbar = () => {
               }
             />
 
-            <div id="dropdown" className=" w-40 rounded-lg z-30">
-              <h1 className="p-2 bg-purple-400 rounded-lg text-center font-semibold  w-full">
+            <div id="dropdown" className=" w-28 lg:w-40 rounded-lg z-30">
+              <h1 className="p-2 bg-purple-400 dark:bg-gradient-to-r from-orange-500 via-purple-600 to-purple-700 rounded-lg text-center font-semibold  w-full">
                 {user.displayName || "user name not found"}
               </h1>
-              <button onClick={handleLogout} className="btn w-full bg-orange-600">
+              <button onClick={handleLogout} className="btn w-full bg-orange-600 dark:bg-gradient-to-r from-purple-500 via-purple-600 to-orange-700 hover:bg-gradient-to-br focus:ring-purple-300">
                 Log Out
               </button>
             </div>
           </div>
         ) : (
-          <Link className="btn px-6 bg-purple-400" to="/login">
+          <Link className="btn px-6 bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-purple-300" to="/login">
             Login
           </Link>
         )}
@@ -225,16 +199,6 @@ const Navbar = () => {
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
           </svg>
         </label>
-        {/* <NavLink
-          className={({ isActive }) =>
-            isActive
-              ? "border-2 btn bg-orange-500  font-bold dark:text-black"
-              : "border-2 border-orange-600  text-orange-500 font-bold btn"
-          }
-          to="/"
-        >
-          Appointment
-        </NavLink> */}
       </div>
     </div>
   );
