@@ -9,15 +9,19 @@ const Home = () => {
 
   const [volunteers, setVolunteers] = useState(null)
   const needVolunteers = volunteers?.slice(0, 6);
-  const [sort, setSort] = useState('')
+  const [sort, setSort] = useState('1')
 
 
     useEffect( () => {
-        const getData = async () =>{
-          const {data} = await axios(`http://localhost:5000/volunteers?sort=${sort}`)
-          setVolunteers(data)
-        }
-        getData()
+      
+          axios.get(`https://helps-hand-network-server.vercel.app
+/volunteers?sort=${sort}`)
+.then(data => {
+
+  setVolunteers(data.data)
+})
+
+      
     }, [sort] )
 
 

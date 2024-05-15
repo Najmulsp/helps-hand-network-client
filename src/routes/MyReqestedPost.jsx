@@ -10,7 +10,8 @@ const MyReqestedPost = () => {
   
 
   useEffect(() => {
-    fetch(`http://localhost:5000/MyRequestPost/${user?.email}`, {credentials: "include"})
+    fetch(`https://helps-hand-network-server.vercel.app
+/MyRequestPost/${user?.email}`, {credentials: "include"})
       .then((res) => res.json())
       .then((data) => {
         setMyRequestPosts(data);
@@ -29,7 +30,8 @@ const MyReqestedPost = () => {
       confirmButtonText: "Yes, cancel it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/deleteMyRequestPost/${id}`, {
+        fetch(`https://helps-hand-network-server.vercel.app
+/deleteMyRequestPost/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

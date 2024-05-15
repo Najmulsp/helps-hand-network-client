@@ -4,14 +4,15 @@ import { AuthContext } from "../provider/AuthProvider";
 import { TfiHandStop } from "react-icons/tfi";
 import Swal from "sweetalert2";
 import axios from "axios";
-import { Typewriter } from 'react-simple-typewriter'
+
 
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
 
   const handleLogout = async () => {
-    const { data } = await axios.post(`http://localhost:5000/logout`, user, {
+    const { data } = await axios.post(`https://helps-hand-network-server.vercel.app
+/logout`, user, {
       withCredentials: true,
     });
     console.log(data);

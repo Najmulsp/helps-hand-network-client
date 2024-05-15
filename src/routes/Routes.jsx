@@ -22,22 +22,26 @@ const router = createBrowserRouter([
         {
             path:"/",
             element: <Home></Home>,
-            // loader: () => fetch('http://localhost:5000/volunteers')
+            // loader: () => fetch('https://helps-hand-network-server.vercel.app
+
         },
         {
             path:"/needVolunteers",
             element: <NeedVolunteers></NeedVolunteers>,
-            // loader: ({params}) => fetch(`http://localhost:5000/postDetails/${params.id}`)
+            // loader: ({params}) => fetch(`https://helps-hand-network-server.vercel.app
+
         },
         {
             path:"/postDetails/:id",
             element:<PrivetRoute><PostDetails></PostDetails></PrivetRoute> ,
-            loader: ({params}) => fetch(`http://localhost:5000/postDetails/${params.id}`)
+            loader: ({params}) => fetch(`https://helps-hand-network-server.vercel.app
+/postDetails/${params.id}`)
         },
         {
             path:"/beAVolunteer/:id",
             element:<PrivetRoute><BeAVolunteer></BeAVolunteer></PrivetRoute> ,
-            loader: ({params}) => fetch(`http://localhost:5000/postDetails/${params.id}`)
+            loader: ({params}) => fetch(`https://helps-hand-network-server.vercel.app
+/postDetails/${params.id}`)
         },
         {
             path:"/addVolunteers",
@@ -50,7 +54,8 @@ const router = createBrowserRouter([
         {
             path:"/updateMyPost/:id",
             element:<PrivetRoute><UpdateMyPost></UpdateMyPost></PrivetRoute>,
-            loader: ({params}) => fetch(`http://localhost:5000/singlePost/${params.id}`) 
+            loader: ({params}) => fetch(`https://helps-hand-network-server.vercel.app
+/singlePost/${params.id}`) 
         },
         {
             path:"/myRequestedPost",

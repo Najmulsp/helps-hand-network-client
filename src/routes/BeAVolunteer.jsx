@@ -1,4 +1,4 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import { useContext, useState } from 'react';
 import Swal from 'sweetalert2'
 import DatePicker from "react-datepicker";
@@ -10,10 +10,7 @@ import { AuthContext } from "../provider/AuthProvider";
 const BeAVolunteer = () => {
     const volunteerPost = useLoaderData();
     const [startDate, setStartDate] = useState(new Date());
-  // const {id} = useParams();
-  // console.log(id)
-
-    // const [count, setCount] = useState(volunteerPost);
+ 
 
     const {user} = useContext(AuthContext);
     console.log(volunteerPost)
@@ -42,7 +39,7 @@ const BeAVolunteer = () => {
     
         
         // send data to the server
-        fetch('http://localhost:5000/requestVolunteer', {
+        fetch('https://helps-hand-network-server-4eoq6fo4n-md-najmuls-projects.vercel.app/requestVolunteer', {
             method: 'POST',
             headers:{'content-type' : 'application/json'},
             body:JSON.stringify(newRequest)
@@ -53,7 +50,8 @@ const BeAVolunteer = () => {
             if(data?.insertedId){
 
          // update quantity
-        fetch(`http://localhost:5000/updateQuantity/${volunteerPost[0]._id}`,{
+        fetch(`https://helps-hand-network-server.vercel.app
+/updateQuantity/${volunteerPost[0]._id}`,{
           method: "PATCH",
           headers: { "content-type": "application/json" },
           // body: JSON.stringify(quantity),

@@ -13,7 +13,8 @@ const ManagePost = () => {
     
   
     useEffect(() => {
-      fetch(`http://localhost:5000/manageMyPost/${user?.email}`, {credentials: "include"})
+      fetch(`https://helps-hand-network-server.vercel.app
+/manageMyPost/${user?.email}`, {credentials: "include"})
         .then((res) => res.json())
         .then((data) => {
             setMyPosts(data);
@@ -31,7 +32,8 @@ const ManagePost = () => {
           confirmButtonText: "Yes, delete it!",
         }).then((result) => {
           if (result.isConfirmed) {
-            fetch(`http://localhost:5000/deleteMyPost/${id}`, {
+            fetch(`https://helps-hand-network-server.vercel.app
+/deleteMyPost/${id}`, {
               method: "DELETE",
             })
               .then((res) => res.json())

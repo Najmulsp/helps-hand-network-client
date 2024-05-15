@@ -3,9 +3,9 @@ import { Link, useLoaderData } from "react-router-dom";
 
 const PostDetails = () => {
   const volunteerPost = useLoaderData();
-  console.log(volunteerPost)
+  
 
-  // const {thumbnail, postTitle, category, deadline} = volunteerPost
+  
   return (
     <div className=" lg:w-2/5 mx-auto mt-10">
       <Helmet>

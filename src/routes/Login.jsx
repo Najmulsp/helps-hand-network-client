@@ -26,7 +26,8 @@ const Login = () => {
       const result = await login(email, password);
       console.log(result.user);
       const { data } = await axios.post(
-        `http://localhost:5000/jwt`,
+        `https://helps-hand-network-server.vercel.app
+/jwt`,
         { email: result?.user?.email },
         { withCredentials: true }
       );
@@ -47,7 +48,8 @@ const Login = () => {
     const result = await googleLogin();
     console.log(result.user);
     const { data } = await axios.post(
-      `http://localhost:5000/jwt`,
+      `https://helps-hand-network-server.vercel.app
+/jwt`,
       { email: result?.user?.email },
       { withCredentials: true }
     );

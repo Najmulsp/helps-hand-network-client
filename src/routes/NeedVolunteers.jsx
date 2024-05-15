@@ -4,20 +4,21 @@ import { Link} from "react-router-dom";
 import { FaStackExchange } from "react-icons/fa";
 import axios from "axios";
 import { toast } from "react-toastify";
-// import { AuthContext } from "../provider/AuthProvider";
+
 
 const NeedVolunteers = () => {
-  // const {user} = useContext(AuthContext)
+
   const [volunteers, setVolunteers] = useState(null);
   const [layoutMode, setLayoutMode] = useState("card");
   const [search, setSearch] = useState("");
-  // const [needPosts, setNeedPosts] = useState(null)
+
   
 
   useEffect(()=>{
-    axios.get(`http://localhost:5000/needPosts?search=${search}`)
+    axios.get(`https://helps-hand-network-server.vercel.app
+/needPosts?search=${search}`)
     .then(data => {
-      // console.log(data.data)
+     
       if(data.data.length === 0){
         toast('Currently We do not need any volunteer')
       }

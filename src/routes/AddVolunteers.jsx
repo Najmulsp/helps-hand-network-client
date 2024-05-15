@@ -10,7 +10,7 @@ const AddVolunteers = () => {
   const [startDate, setStartDate] = useState(new Date());
 
   const { user } = useContext(AuthContext);
-  console.log(user.email);
+
 
   const handleAddVolunteers = (e) => {
     e.preventDefault();
@@ -25,7 +25,7 @@ const AddVolunteers = () => {
     const photo = e.target.photo.value;
 
     const deadlines = parseInt(deadline)
-console.log(deadlines)
+
 
     const addData = {
       postTitle,
@@ -40,7 +40,7 @@ console.log(deadlines)
     };
 
     // send data to the server
-    fetch("http://localhost:5000/addVolunteers", {
+    fetch("https://helps-hand-network-server-4eoq6fo4n-md-najmuls-projects.vercel.app/addVolunteers", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(addData),

@@ -34,7 +34,8 @@ const Register = () => {
       // createUser
     const result = await createUser(email, password);  
     const { data } = await axios.post(
-      `http://localhost:5000/jwt`,
+      `https://helps-hand-network-server.vercel.app
+/jwt`,
       { email: result?.user?.email },
       { withCredentials: true }
     );

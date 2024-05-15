@@ -12,7 +12,7 @@ const UpdateMyPost = () => {
 
   const { user } = useContext(AuthContext);
   const singlePost = useLoaderData();
-  console.log(singlePost);
+ 
 
   const handleUpdate = (e) => {
     e.preventDefault();
@@ -39,7 +39,8 @@ const UpdateMyPost = () => {
     };
 
     // send data to the server
-    fetch(`http://localhost:5000/updateVolunteerInfo/${singlePost?._id}`, {
+    fetch(`https://helps-hand-network-server.vercel.app
+/updateVolunteerInfo/${singlePost?._id}`, {
       method: "PUT",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(updateVolunteer),
