@@ -108,7 +108,7 @@ const NeedVolunteers = () => {
                     <th className="p-3">Post Title</th>
                     <th className="p-3">Category</th>
                     <th className="p-3">Deadline</th>
-                    <th className="p-3 text-right pl-6">Location</th>
+                    <th className="p-3 text-center pl-6">Location</th>
                     <th className="p-3 text-center flex items-center mr-2">Be a volunteeer <FaLongArrowAltDown className="text-2xl text-purple-500"/></th>
                   </tr>
                 </thead>
@@ -131,7 +131,7 @@ const NeedVolunteers = () => {
                       <td className="p-3">
                         <p>{volunteer.deadline}</p>
                       </td>
-                      <td className="p-3 text-right">
+                      <td className="p-3 text-center">
                         <p>{volunteer.location}</p>
                       </td>
                       <td className="p-3 text-right">
