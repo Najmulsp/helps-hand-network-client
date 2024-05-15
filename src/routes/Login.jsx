@@ -31,8 +31,7 @@ const Login = () => {
         { withCredentials: true }
       );
       console.log(data);
-      // .then((result) => {
-      //   console.log(result);
+    
       toast("You have successfully logged in");
 
       // navigate after log in
