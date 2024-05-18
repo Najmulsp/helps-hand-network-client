@@ -8,6 +8,7 @@ import axios from "axios";
 
 
 const Navbar = () => {
+  const localTheme = localStorage.getItem('theme');
   const { user, logout } = useContext(AuthContext);
 
   const handleLogout = async () => {
@@ -25,19 +26,26 @@ const Navbar = () => {
       timer: 1500,
     });
   };
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(localTheme);
+  const [type, setType] = useState(false);
+  
   useEffect(() => {
-    localStorage.setItem("theme", theme);
-    const localTheme = localStorage.getItem("theme");
-    document.querySelector("html").setAttribute("data-theme", localTheme);
-  }, [theme]);
-  const handleTheme = (e) => {
-    if (e.target.checked) {
-      setTheme("synthwave");
+    localStorage.setItem('theme', theme);
+    const localTheme = localStorage.getItem('theme');
+    if (localTheme == 'synthwave') {
+      setType(true);
     } else {
-      setTheme("light");
+      setType(false);
     }
-  };
+    document.querySelector('html').setAttribute('data-theme', localTheme);},[theme]);
+const handleToggle = e => {
+  setType(!type);
+
+  if (e.target.checked) {
+    setTheme('synthwave');
+  } else {
+    setTheme('light');}};
+
 
   const navlinks = (
     <>
@@ -165,11 +173,12 @@ const Navbar = () => {
         )}
         <label className="cursor-pointer grid place-items-center">
           <input
-            onChange={handleTheme}
-            type="checkbox"
-            value="synthwave"
-            className="toggle theme-controller bg-base-content row-start-1 col-start-1 col-span-2"
-          />
+          onChange={handleToggle}
+          type="checkbox"
+          value="synthwave"
+          className="toggle theme-controller h-7 md:h-8 w-16 bg-orange-600 row-start-1 col-start-1 col-span-2"
+          checked={type}
+        />
           <svg
             className="col-start-1 row-start-1 stroke-base-100 fill-base-100"
             xmlns="http://www.w3.org/2000/svg"
