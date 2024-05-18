@@ -12,7 +12,7 @@ const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
 
   const handleLogout = async () => {
-    const { data } = await axios.post(`https://helps-hand-network-server.vercel.app
+    const { data } = await axios.post(`http://localhost:5000
 /logout`, user, {
       withCredentials: true,
     });

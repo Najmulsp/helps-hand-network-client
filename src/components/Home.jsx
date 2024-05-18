@@ -14,8 +14,8 @@ const Home = () => {
 
     useEffect( () => {
       
-          axios.get(`https://helps-hand-network-server.vercel.app
-/volunteers?sort=${sort}`)
+          axios.get(`http://localhost:5000
+/volunteers?sort=${sort}`, {withCredentials: true})
 .then(data => {
 
   setVolunteers(data.data)

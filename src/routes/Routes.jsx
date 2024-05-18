@@ -22,25 +22,25 @@ const router = createBrowserRouter([
         {
             path:"/",
             element: <Home></Home>,
-            // loader: () => fetch('https://helps-hand-network-server.vercel.app
+            // loader: () => fetch('http://localhost:5000
 
         },
         {
             path:"/needVolunteers",
             element: <NeedVolunteers></NeedVolunteers>,
-            // loader: ({params}) => fetch(`https://helps-hand-network-server.vercel.app
+            // loader: ({params}) => fetch(`http://localhost:5000
 
         },
         {
             path:"/postDetails/:id",
             element:<PrivetRoute><PostDetails></PostDetails></PrivetRoute> ,
-            loader: ({params}) => fetch(`https://helps-hand-network-server.vercel.app
+            loader: ({params}) => fetch(`http://localhost:5000
 /postDetails/${params.id}`)
         },
         {
             path:"/beAVolunteer/:id",
             element:<PrivetRoute><BeAVolunteer></BeAVolunteer></PrivetRoute> ,
-            loader: ({params}) => fetch(`https://helps-hand-network-server.vercel.app
+            loader: ({params}) => fetch(`http://localhost:5000
 /postDetails/${params.id}`)
         },
         {
@@ -54,7 +54,7 @@ const router = createBrowserRouter([
         {
             path:"/updateMyPost/:id",
             element:<PrivetRoute><UpdateMyPost></UpdateMyPost></PrivetRoute>,
-            loader: ({params}) => fetch(`https://helps-hand-network-server.vercel.app
+            loader: ({params}) => fetch(`http://localhost:5000
 /singlePost/${params.id}`) 
         },
         {

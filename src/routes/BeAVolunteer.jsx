@@ -50,7 +50,7 @@ const BeAVolunteer = () => {
             if(data?.insertedId){
 
          // update quantity
-        fetch(`https://helps-hand-network-server.vercel.app
+        fetch(`http://localhost:5000
 /updateQuantity/${volunteerPost[0]._id}`,{
           method: "PATCH",
           headers: { "content-type": "application/json" },

@@ -39,7 +39,7 @@ const UpdateMyPost = () => {
     };
 
     // send data to the server
-    fetch(`https://helps-hand-network-server.vercel.app
+    fetch(`http://localhost:5000
 /updateVolunteerInfo/${singlePost?._id}`, {
       method: "PUT",
       headers: { "content-type": "application/json" },

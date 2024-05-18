@@ -1,12 +1,12 @@
-import { useContext, useState } from "react";
-import { Helmet } from "react-helmet-async";
-import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
-import { Link } from "react-router-dom";
-import { useLocation, useNavigate } from "react-router-dom";
-import { AuthContext } from "../provider/AuthProvider";
-import { toast } from "react-toastify";
-import axios from "axios";
-import Swal from "sweetalert2";
+import { useContext, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { IoEyeOffOutline, IoEyeOutline } from 'react-icons/io5';
+import { Link } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../provider/AuthProvider';
+import { toast } from 'react-toastify';
+
+import Swal from 'sweetalert2';
 
 const Login = () => {
   const { login, googleLogin } = useContext(AuthContext);
@@ -14,7 +14,7 @@ const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const handleLogin = async (e) => {
+  const handleLogin = async e => {
     e.preventDefault();
 
     const email = e.target.email.value;
@@ -25,44 +25,44 @@ const Login = () => {
     try {
       const result = await login(email, password);
       console.log(result.user);
-      const { data } = await axios.post(
-        `https://helps-hand-network-server.vercel.app
-/jwt`,
-        { email: result?.user?.email },
-        { withCredentials: true }
-      );
-      console.log(data);
-    
-      toast("You have successfully logged in");
+      //       const { data } = await axios.post(
+      //         `http://localhost:5000
+      // /jwt`,
+      //         { email: result?.user?.email },
+      //         { withCredentials: true }
+      //       );
+      //       console.log(data);
+
+      toast('You have successfully logged in');
 
       // navigate after log in
-      navigate(location?.state ? location.state : "/");
+      navigate(location?.state ? location.state : '/');
       // })
     } catch (err) {
       console.log(err);
-      toast.error("User email or password not matched");
+      toast.error('User email or password not matched');
     }
   };
 
   const handleGoogleLogin = async () => {
     const result = await googleLogin();
     console.log(result.user);
-    const { data } = await axios.post(
-      `https://helps-hand-network-server.vercel.app
-/jwt`,
-      { email: result?.user?.email },
-      { withCredentials: true }
-    );
+    //     const { data } = await axios.post(
+    //       `http://localhost:5000
+    // /jwt`,
+    //       { email: result?.user?.email },
+    //       { withCredentials: true }
+    //     );
     Swal.fire({
-      position: "top-end",
-      icon: "success",
-      title: "You have successfully logged in",
+      position: 'top-end',
+      icon: 'success',
+      title: 'You have successfully logged in',
       showConfirmButton: false,
       timer: 1500,
     });
-    console.log(data)
+    // console.log(data)
     // navigate after log in
-    navigate(location?.state ? location.state : "/");
+    navigate(location?.state ? location.state : '/');
   };
 
   return (
@@ -110,7 +110,7 @@ const Login = () => {
                 <span className="label-text">Password</span>
               </label>
               <input
-                type={showPassword ? "text" : "password"}
+                type={showPassword ? 'text' : 'password'}
                 name="password"
                 placeholder="Password"
                 className="input input-bordered"
@@ -129,12 +129,14 @@ const Login = () => {
             </div>
 
             <div className="form-control mt-6">
-              <button className="btn bg-gradient-to-r from-orange-500 via-purple-600 to-orange-700 hover:bg-gradient-to-br focus:ring-purple-300">Login</button>
+              <button className="btn bg-gradient-to-r from-orange-500 via-purple-600 to-orange-700 hover:bg-gradient-to-br focus:ring-purple-300">
+                Login
+              </button>
             </div>
           </form>
 
           <p className="p-8">
-            Do not have an account?{" "}
+            Do not have an account?{' '}
             <Link to="/register" className="text-orange-600">
               Register
             </Link>

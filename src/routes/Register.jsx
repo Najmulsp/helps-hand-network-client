@@ -32,14 +32,14 @@ const Register = () => {
 
     try{
       // createUser
-    const result = await createUser(email, password);  
-    const { data } = await axios.post(
-      `https://helps-hand-network-server.vercel.app
-/jwt`,
-      { email: result?.user?.email },
-      { withCredentials: true }
-    );
-    console.log(data)
+    createUser(email, password);  
+//     const { data } = await axios.post(
+//       `http://localhost:5000
+// /jwt`,
+//       { email: result?.user?.email },
+//       { withCredentials: true }
+//     );
+    // console.log(data)
         toast("User has created successfully");
         navigate(location?.state ? location.state : "/");
        } catch (error)  {
