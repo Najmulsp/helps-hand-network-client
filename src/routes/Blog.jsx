@@ -60,6 +60,42 @@ const Blog = () => {
       })
     }
 
+    const handleRemoveBlog = id => {
+        Swal.fire({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, remove it!',
+        }).then(result => {
+          if (result.isConfirmed) {
+            fetch(
+              `http://localhost:5000/blogs/${id}`,
+              {
+                method: 'DELETE',
+              }
+            )
+              .then(res => res.json())
+              .then(data => {
+                console.log(data);
+                if (data.deletedCount > 0) {
+                  const remaining = blogs.filter(
+                    myPost => myPost._id !== id
+                  );
+                  setBlogs(remaining);
+                  Swal.fire({
+                    title: 'Deleted!',
+                    text: 'Your blog has been removed.',
+                    icon: 'success',
+                  });
+                }
+              });
+          }
+        });
+      };
+
 
   return (
     <section>
@@ -209,6 +245,7 @@ const Blog = () => {
                 </div>
                 <h1 className="text-3xl font-semibold">{blog.name}</h1>
                 <p className="flex-1 pt-2">{blog.description}</p>
+                <div className="flex justify-between items-center">
                 <a
                   rel="noopener noreferrer"
                   href="#"
@@ -227,7 +264,10 @@ const Blog = () => {
                       clipRule="evenodd"
                     ></path>
                   </svg>
+
                 </a>
+                <p><span className="text-xs">{blog.readTime} read</span></p>
+                </div>
                 <div className="flex items-center justify-between pt-2">
                   <div className="flex space-x-2">
                     <svg
@@ -246,7 +286,9 @@ const Blog = () => {
                       by {blog.blogger}
                     </span>
                   </div>
-                  <span className="text-xs">{blog.readTime} read</span>
+                  <button
+                  onClick={()=>{handleRemoveBlog(blog._id)}}
+                  className="btn bg-gradient-to-r from-orange-400 via-orange-500 to-orange-700 hover:bg-gradient-to-br focus:ring-orange-300 dark:text-black rounded-md">Remove</button>
                 </div>
               </div>
             </div>
