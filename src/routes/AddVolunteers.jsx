@@ -40,7 +40,7 @@ const AddVolunteers = () => {
     };
 
     // send data to the server
-    fetch("https://helps-hand-network-server-4eoq6fo4n-md-najmuls-projects.vercel.app/addVolunteers", {
+    fetch("http://localhost:5000/addVolunteers", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(addData),

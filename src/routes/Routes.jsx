@@ -12,6 +12,7 @@ import AddVolunteers from "./AddVolunteers";
 import ManagePost from "./ManagePost";
 import UpdateMyPost from "./UpdateMyPost";
 import MyReqestedPost from "./MyReqestedPost";
+import Blog from "./Blog";
 
 const router = createBrowserRouter([
     {
@@ -22,14 +23,14 @@ const router = createBrowserRouter([
         {
             path:"/",
             element: <Home></Home>,
-            // loader: () => fetch('http://localhost:5000
-
+        },
+        {
+            path:"/blog",
+            element: <Blog></Blog>,
         },
         {
             path:"/needVolunteers",
             element: <NeedVolunteers></NeedVolunteers>,
-            // loader: ({params}) => fetch(`http://localhost:5000
-
         },
         {
             path:"/postDetails/:id",

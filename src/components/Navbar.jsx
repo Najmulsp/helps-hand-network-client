@@ -80,6 +80,18 @@ const handleToggle = e => {
               ? "border-2 px-2 lg:px-4 py-2 rounded-lg bg-orange-600 font-bold dark:text-black"
               : ""
           }
+          to="/blog"
+        >
+          Blog
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "border-2 px-2 lg:px-4 py-2 rounded-lg bg-orange-600 font-bold dark:text-black"
+              : ""
+          }
           to="/myRequestedPost"
         >
           My Requested Post

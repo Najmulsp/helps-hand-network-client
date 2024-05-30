@@ -79,12 +79,12 @@ const Home = () => {
                       <span className="font-bold">Deadline: </span>
                       {volunteer.deadline}
                     </p>
-                  </div>
+                 
                   <Link to={`/postDetails/${volunteer?._id}`}>
                       <button className="btn hover:bg-gradient-to-br focus:ring-purple-300 bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700">
                         Post Details
                       </button>
-                    </Link>
+                    </Link> </div>
                 </div>
               </div>
             ))}

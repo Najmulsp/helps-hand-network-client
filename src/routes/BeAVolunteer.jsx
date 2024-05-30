@@ -39,7 +39,7 @@ const BeAVolunteer = () => {
     
         
         // send data to the server
-        fetch('https://helps-hand-network-server-4eoq6fo4n-md-najmuls-projects.vercel.app/requestVolunteer', {
+        fetch('http://localhost:5000/requestVolunteer', {
             method: 'POST',
             headers:{'content-type' : 'application/json'},
             body:JSON.stringify(newRequest)
