@@ -4,12 +4,12 @@
 
 ## Packages I have used:
 -AOS
--React DatePicker
+-React date picker
 -Swiper slider
 
 ## featured and characteristics:
--I have used tailwind css and daisy ui for design my website because both of them are easy to used.
--This is a volunteer management website for social non profit works
--I have used react router for routing my website.
--I have also swiper slider for sliding my banner.
--I have used animate on scrolling for animate my web page.
+-I have used Tailwind CSS and Daisy UI to design my website because both are easy to use.
+-This is a volunteer management website for social non-profit works
+-I have used React router for routing my website.
+-I have also used swiper slider for sliding my banner.
+-I have used animate on scrolling to animate my web page.
